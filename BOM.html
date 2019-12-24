@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bom</title>
+        <style>
+        .mydiv {
+            height: 20px;
+            width: 20px;
+            background-color: red;
+        }
+        </style>
+        <script>
+        var mywindow
+        // function open() {
+        //     // mywindow= window.open("","","height=400,width=400")
+        //     myWindow=window.open("","","width=400,height=200");
+        // }
+        function change() {
+            window.open("http://www.baidu.com","baidu","height=300,width=300")
+        //     var z = confirm("nihao")
+        //     window.frames[0].location = "http://www.runoob.com"
+        }
+        // console.log(window.history)
+        console.log(window.innerHeight)
+        console.log(window.innerWidth)
+        console.log(window.outerHeight,window.outerWidth)
+        console.log(screen.height)
+        console.log(screen.availHeight)
+        console.log(screen.colorDepth)
+        // console.log(window.pageXOffset,pageYOffset)
+        // console.log(window.parent)
+        // console.log(window.frames)
+        // console.log(window.top === window.self)
+        // window.alert(1)
+        // var x = "HELLO"
+        // console.log(window.atob(x))
+        // var colo = document.getElementsByClassName("mydiv")[0]
+        // var zzz = window.getComputedStyle(colo,null).getPropertyValue("background-color")
+        // console.log(zzz)
+        // console.log(window.getComputedStyle(colo))
+        // function myFun() {
+        //     if(x.ma)
+        // }
+        // console.log(window.matchMedia("(max-width: 700px)").matches)
+        // window.scrollTo()
+        // console.log(navigator.appCodeName)
+        // console.log(navigator.cookieEnabled)
+        // console.log(navigator.platform)
+        // console.log(navigator.userAgent)
+        console.log(location)
+        </script>
+    </head>
+    <body>
+        <!-- <input type="button" onclick="open()" value="打开窗口"> -->
+        <input type="button" onclick="change()" value="点击">
+        <!-- <iframe src="http://www.baidu.com"></iframe>
+        <div class="mydiv"></div> -->
+        <!-- <input onclick="open()" type="button" value="dianji"> -->
+        <!-- <script>
+          function open() {
+              console.log("hello")
+            // window.open("http://www.baidu.com","baidu","height=300,width=300")
+        }
+        </script> -->
+    </body>
+</html>

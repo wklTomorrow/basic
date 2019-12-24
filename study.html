@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+         function clickme(event) {
+            var bu = event.button
+            // console.log(bu)
+            console.log(event.clientX,event.clientY)
+            console.log(event.screenX,event.screenY)
+        }
+        function keyClick(event) {
+            console.log(event.keyCode)
+        }
+        function getmouse(event) {
+            console.log(event)
+        }
+        </script>
+    </head>
+    <body onmousedown="getmouse(event)" onclick="clickme(event)" onkeyup="keyClick(event)">
+        <a href="www.baidu.com" id="link">访问百度</a>
+        <input type="button" value="改变链接" onclick="change()">
+        <p>点击按钮改变链接</p>
+        <input type="checkbox" id="checkout">
+        <input type="button" onclick="check()" value="选中复选框">
+        <input type="button" onclick="uncheck()" value="取消选中">
+        <form id="form">
+            姓名：<input type="text" id="text1" size="20"><br>
+            <input type="button" onclick="reset()" value="重置">
+        </form>
+        <script>
+        function reset() {
+            console.log(navigator.appName)
+            document.getElementById("form").reset()
+            document.getAnimations("text1").focus()
+            window.location.reload()
+            
+        }
+        function change() {
+            document.getElementById("link").innerHTML = "访问淘宝"
+            document.getElementById("link").href = "www.taobao.com"
+            document.getElementById("link").target = "_blank"
+        }
+        function check() {
+            window.open("www.baidu.com")
+            document.getElementById('checkout').checked = true
+        }
+        function uncheck() {
+            document.getElementById('checkout').checked = false
+        }
+        document.write("hello world")
+        document.write("<p>hello world</p>")
+        document.write(document.title)
+        document.write(document.URL)
+        document.write(document.referrer)
+        document.write(location.href)
+        window.scrollTo(20, 20)
+        var text = prompt("qingshuru")
+        console.log(text)
+        var oldObj = {
+            name: "xiao",
+            age: 18,
+            sex: "女"
+        }
+        function clone(val) {
+            if(typeof val != 'object' || val === null) return val
+            var newArr = val.constructor === Array ? [] : {}
+            for(var x in val) {
+                newArr [x] = clone(val[x])
+            }
+            
+            return newArr
+        }
+        let newArray = clone(oldObj)
+        debugger
+        </script>
+    </body>
+</html>
