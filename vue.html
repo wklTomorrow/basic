@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="vue">
+            <button-counter></button-counter>
+        </div>
+        <script>
+        Vue.component('button-counter', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+        })
+        new Vue({
+            // el: '#vue',
+            // template: '<div @click="changehello" ref="divTTT">{{ hello }}</div>',
+            data: {
+                hello: 'hello world'
+            },
+            methods: {
+                changehello () {
+                    this.hello = 'tomorrow'
+                }
+            },
+            watch: {
+                hello (ele) {
+                    this.$refs.divTTT.style.color = 'red'
+                }
+            }
+        }).$mount('#vue')
+        </script>
+    </body>
+</html>

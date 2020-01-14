@@ -17,6 +17,9 @@
         .red {
             color:  red;
         }
+        .aaaa {
+            color: yellow;
+        }
         </style>
     </head>
     <body>
@@ -28,9 +31,10 @@
             </div>
             <div class="second">
                 <img src="" alt="">
+                <div id="test"></div>
             </div>
         </div>
-        <div id="ttt">
+        <!-- <div id="ttt">
             <a href="http://taobao.com" id="a">taobao</a>
             <ul>
                 <li>苹果</li>
@@ -43,9 +47,16 @@
                 <li>三星</li>
             </ul>
             <p id="edit">hello</p>
-        </div>
+        </div> -->
         <button onclick="funcme()">dianwo</button>
     <script>
+        var x = document.getElementById("test")
+        var z = document.createElement('DIV')
+        console.log(z)
+        z.setAttribute('class', 'aaaa')
+        var test = document.createTextNode("hello")
+        z.append(test)
+        x.parentNode.removeChild(x)
         console.log(document.styleSheets)
         // console.log(document.getElementById("first").style)
         // console.log("hello world")
