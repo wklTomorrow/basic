@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module">
+            // const x = 1
+            // console.log(this)
+            // console.log(this === undefined)
+        </script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+        <style>
+        .v {
+            visibility: hidden;
+        }
+        .d {
+            display: none;
+        }
+        </style>
+    </head>
+    <body>
+        <div>时间格式化</div>
+        <div class="v">hello</div>
+        <div class="d">world</div>
+        <div id="vue">
+            <!-- <div v-if='i'>tomorrow</div>
+            <div v-show='s'>today</div> -->
+        </div>
+        <script>
+            // apply方法
+            // Function.prototype.myApply = function(context, arg) {
+            //     const fn = Symbol('临时属性')
+            //     context[fn] = this
+            //     context[fn](...arg)
+            //     delete context[fn]
+            // }
+            // const obj = {
+            //     a: 1
+            // }
+            // function test(...arg) {
+            //     console.log(...arg)
+            // }
+            // test.myApply(this, [2,3,4])
+            // test()
+            // console.log(obj)
+            // new Vue({
+            //     data: {
+            //         i: false,
+            //         s: false
+            //     },
+            //     template: 
+            //     `
+            //     <div>
+            //         <div v-if='i'>tomorrow</div>
+            //         <div v-if='s'>today</div>
+            //     </div>
+            //     `
+            // }).$mount('#vue')
+            // var arr1 = [[1, 2], [1, 2], [1, 2],[1, 2, 3],[1, 2, 3],[1, 2, 3],[1, 2, 3]] 
+            // var arr2 = [1, 2]
+            // var str1 = arr1.join()
+            // var str2 = arr2.join()
+            // console.log(str1)
+            // var maxCount = 0,maxarr
+            // for(let i = 0; i < arr1.length; i++) {
+            //     var count = 0
+            //     for(let j = 0; j < arr1.length; j++) {
+            //         if(arr1[i].join() === arr1[j].join()) {
+            //             count ++ 
+            //         }
+            //     }
+            //     if (maxCount > count) {
+            //     }  else {
+            //         maxCount = count
+            //         maxarr = arr1[i]
+            //     }
+            // }
+            // console.log(maxarr, maxCount)
+            // var a = [1,2,3,4,5,6,1,2,1,2,2]
+            // var maxArr, c
+            // // 数组出现次数最多的
+            // for(let i = 0; i < a.length; i++) {
+            //     let count = 0, j = 0
+            //     while(count < a.length) {
+            //         if(a[i] === a[count]) {
+            //             j++
+            //         }
+            //         count ++
+            //     }
+            //     // console.log(j)
+            //     if (c > j) {
+
+            //     } else {
+            //         c = j
+            //         maxArr = a[i]
+            //     }
+            // }
+            // console.log(maxArr, c)
+            // 对比版本号是否相同
+            // var c = '1.2.2'
+            // var b = '1.2.3'
+            // var s1 = c.split('.')
+            // var s2 = b.split('.')
+            // console.log(s1, s2)
+            // var str
+            // for (var i = 0; i < s1.length; i++) {
+            //     if( (s1[i] - '') === (s2[i] - '') ) {
+            //         continue
+            //     } else {
+            //         if((s1[i] - '') > (s2[i] - '')) {
+            //             str = '版本号新'
+            //         } else {
+            //             str='版本号旧'
+            //         }
+            //         break
+            //     }
+            // }
+            // console.log(str)
+            // a.forEach(ele => {
+            //     // maxArr = maxArr === ele ? maxArr : ele
+            //     // var count = 0
+            //     if (maxArr === ele) {
+            //         count ++
+            //     } else {
+            //         maxArr = ele
+            //     }
+            // })
+            // console.log(maxArr, count)
+            // 交换两个字符串
+            // var str = /([w]*)-([l]*)-([h]*)/g
+            // var str1 = 'ww-ll-hh'
+            // var newStr = str1.replace(str, function(key, ...value) {
+            //     // console.log(key, value)
+            //     console.log(key)
+            //     console.log(...value)
+            //     return key
+            // })
+            // console.log(newStr)
+            // var str1 = 'hello-world'
+            // var str = str1.replace('hello', 'tomorrow')
+            // console.log(str)
+        // 时间格式化
+        var timer = (new Date()).getTime()
+        console.log(timer)
+        function fommate([options = 'YYYY-MM-DD HH:mm:SS', timer = (new Date()).getTime()]) {
+            var t = new Date(timer)
+            let obj = {
+                'Y': t.getFullYear(),
+                'M': t.getMonth() + 1 < 10 ? '0' +(t.getMonth() + 1) : t.getMonth() + 1 ,
+                'D': t.getDate() < 10 ? '0' + t.getDate() : t.getDate(),
+                'H': t.getHours() < 10 ? '0' + t.getHours() : t.getHours(),
+                'm': t.getMinutes() < 10 ? '0' + t.getMinutes() : t.getMinutes(),
+                'S': t.getSeconds() < 10 ? '0' + t.getSeconds() : t.getSeconds()
+            }
+            // console.log(options)
+            var newValue
+            options.replace(/([Y]*)-([M]*)-([D]*)\s([H]*):([m]*):([S]*)/g, function(key, ...value) {
+                for(let i = 0; i < value.length; i++) {
+                    if(value[i] && value[i].indexOf(Object.keys(obj)[i]) > -1) {
+                        value[value.length - 1] = value[value.length - 1].replace(value[i], Object.values(obj)[i])
+                    }
+                }
+                newValue = value[value.length - 1]
+            })
+            return newValue
+        }
+        console.log(fommate([, timer]))
+        </script>
+    </body>
+</html>
