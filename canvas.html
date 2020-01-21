@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        .c {
+            height: 600px;
+            width: 600px;
+            position: relative;
+            /* border: 1px solid red; */
+            background: linear-gradient(#178dff, white);
+        }
+
+        .ani {
+            position: absolute;
+            left: 0px;
+            top: 400px;
+            border: 1px solid red;
+            height: 100px;
+            width: 100px;
+            /* border-radius: 50%; */
+        }
+
+        .go {
+            /* animation: move 1s linear infinite; */
+            /* animation-iteration-count: 1; */
+            transition: all 1s;
+            transform: rotate(180deg);
+        }
+
+/* 
+        .ani:hover {
+            animation: move 2s infinite;
+            animation-direction: alternate;
+        } */
+
+        @keyframes move {
+            0% {
+            }
+
+            100% {
+                /* transform: translate(50px, 50px); */
+                /* scale(2 */
+                /* transform: scale(1.2); */
+                transform: rotate(180deg);
+            }
+
+        }
+
+        .m {
+            transition: all 1s;
+            transform: rotate(-180deg);
+            /* animation: move 1s reverse linear infinite; */
+            /* animation-iteration-count: 1; */
+        }
+         
+        /* @keyframes move1 {
+            0% {
+                transform: rotate(-180deg);
+            }
+
+            100% {
+
+            }
+        } */
+
+        #c {
+            border: 1px solid red;
+            /* height: 100px;
+            width: 100px; */
+        }
+
+        #img {
+            display: none;
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="c">
+            <div class="ani" id="ani"></div>
+            <canvas id="c" width='300' height="150"></canvas>
+            <img src="./test.png" id="img" alt="">
+        </div>
+        <script>
+            var an = document.getElementById('ani')
+            an.onmouseover = function () {
+                if (an.classList.contains('m')) {
+                    an.classList.remove('m')
+                }
+                an.classList.add('go')
+            }
+            an.onmouseleave = function () {
+                an.classList.remove('go')
+                an.classList.add('m')
+                console.log(an.className)
+            }
+            var c = document.getElementById('c')
+            var ct = c.getContext('2d')
+            /* 使用图片
+            var img = document.getElementById('img')
+            img.onload = function () {
+                ct.drawImage(img, 10, 10)
+            } */
+            /* 文本操作
+            ct.font='20px Arial'
+            ct.strokeText('Hello World', 50 ,50)
+            ct.fillText('Hello World', 50, 50) */
+            /* 转换
+            ct.strokeRect(10,10,100,100)
+            // ct.scale(1.2, 1.2)
+            // ct.rotate(10 * Math.PI / 180)
+            // ct.translate(20,20)
+            ct.strokeRect(10,10,100,100) */
+            /* 创建线条路径
+            ct.lineWidth = '2'
+            ct.moveTo(10,10)
+            ct.lineTo(100,10)
+            ct.lineTo(10, 100)
+            ct.closePath()
+            ct.stroke() */
+            /* 创建圆形
+            ct.arc(100, 75, 30, 0, 2 * Math.PI)
+            ct.fillStyle = 'red'
+            ct.fill() */
+            // ct.stroke()
+            /* 线条渐变加偏移
+            var gra = ct.createLinearGradient(0,0,100,0)
+            gra.addColorStop(0, 'black')
+            gra.addColorStop(1, 'white')
+            ct.shadowBlur = 10
+            ct.shadowColor = 'black'
+            ct.shadowOffsetX = 10
+            ct.shadowOffsetY = 10
+            ct.fillStyle = gra
+            ct.fillRect(10,10,100,100)
+             */
+            /* 创建矩形
+            ct.beginPath()
+            ct.strokeStyle = 'red'
+            ct.lineWidth = '1'
+            ct.rect(200,10,50,50)
+            ct.fillStyle = 'red'
+            ct.fill() */
+            // ct.stroke()
+            // ct.stroke()
+            // ct.fillColor('red')
+        </script>
+    </body>
+</html>
