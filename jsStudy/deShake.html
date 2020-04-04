@@ -1,0 +1,148 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .f-1 {
+            /*height: 100px;*/
+            width: 100%;
+            border: 1px solid;
+            /*clear: both;*/
+        }
+        .f-2 {
+            border: 1px solid;
+            height: 200px;
+            width: 20px;
+            float: right;
+        }
+        .f-3 {
+            width: 20px;
+            border: 1px solid;
+            height: 200px;
+            float: left;
+        }
+
+        .f-1:after {
+            display: block;
+            clear: both;
+            /*height: 0;*/
+            content: "";
+        }
+        .f-1 {
+            zoom: 1;
+        }
+        /*.f-4 {*/
+            /*clear: both;*/
+        /*}*/
+        /**
+        清除浮动：overflow: auto;
+        .f-4 {
+            clear: both;
+        }
+        .f-1:after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+
+         */
+        .wang {
+            height: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">btnClick</button>
+    <div class="f-1">
+        <div class="f-2"></div>
+        <div class="f-3"></div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <!--<div class="f-4"></div>-->
+    </div>
+    <script src="/demo-wang/JQuery.js"></script>
+    <script>
+
+
+        function func() {
+            // return arguments
+        }
+        func.extend = function () {
+            let tar = arguments[0]
+            tar = this
+            for (let name in arguments[0]) {
+                let copy = arguments[0][name]
+                if (typeof copy != 'undefined') {
+                    tar[name] = copy
+                }
+            }
+            return tar
+        }
+        func.extend({
+            x: 1,
+            add: function() {
+                console.log(++this.x)
+            },
+            func: undefined,
+            sub: function() {
+                console.log(this.x++)
+            }
+        })
+        debugger
+        let xx = 111;
+        (function (x, fn) {
+            if (x > 10) {
+                fn(x)
+            }
+        })(xx > 10 ? 20 : 1 , function(e, i) {
+            console.log(e, i)
+        })
+
+        var key = /([a+])+([b+])+(c+)/g
+        let str = 'a+b+c'
+        let s
+        str.replace(key, function (key, ...value) {
+            s = value[value.length - 1].replace(key, '')
+            debugger
+        })
+        var x = document.getElementsByTagName('span')
+
+        function fn () {
+            var arr = []
+            for (var i = 0; i < 5; i++) {
+                arr[i] = (function (i) {
+                    return function () {
+                        return '元素' + i
+                    }
+                })(i)
+            }
+            return arr
+        }
+        console.log(fn()[1]())
+
+        /**
+         * 函数防抖
+         * @param fn
+         * @param delay
+         * @returns {Function}
+         */
+        function go(fn, delay) {
+            var timer = null
+            return function() {
+                clearTimeout(timer)
+                timer = setTimeout(() => {
+                    fn()
+                }, delay)
+            }
+        }
+
+        document.getElementById('btn').onclick = go(function y() {
+            console.log('buttonCLick' + new Date())
+        }, 1000)
+
+
+    </script>
+</body>
+</html>
