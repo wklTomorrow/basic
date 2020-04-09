@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <base href="https://www.baidu.com" target="_blank">
+    </head>
+    <body onload="loadHtml()">
+        <a href=""><p>百度链接</p></a>
+        <address>
+            helloHelloHelloHello
+        </address>
+        <input name="data" list="browersaa">
+        <datalist id="browersaa">
+            <option value="111"></option>
+            <option value="111"></option>
+            <option value="311"></option>
+            <option value="2"></option>
+        </datalist>
+        <span>文本文本<b>文本文本</b></span>
+        <div>
+            <span>文本<bdo dir="ltr">hello</bdo><bdo dir="rtl">hello</bdo></span>
+            <blockquote cite="http://www.worldwildlife.org/who/index.html">
+                For 50 years, WWF has been protecting the future of nature. States and close to 5 million globally.
+            </blockquote>
+            <span>文本文本<br/>文本文本<br>文本</span>
+            <button>确 认</button><input type="button" value="确认">
+            <table border="1">
+                <caption>标题</caption>
+                <colgroup>
+                    <!--<col style="background-color: red">-->
+                    <!--<col style="background-color: blue">-->
+                </colgroup>
+                <tr>
+                    <th>name</th>
+                    <th>name</th>
+                    <th>name</th>
+                    <th>name</th>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>age</td>
+                    <td>name</td>
+                    <td>age</td>
+                </tr>
+                <tr>
+                    <td>wang</td>
+                    <td></td>
+                </tr>
+            </table>
+            <pre>
+                文本   文本
+                文本
+                <code>计算机代码</code>
+            </pre>
+            <em><del>文本文本文本</del></em>
+            <footer>文本文本文本</footer>
+        </div>
+        <section>
+            <div>文本</div>
+            <meter value="0.6"></meter>
+            <a href="/">百度链接</a>
+            <a href="/">百度链接</a>
+            <nav>
+                <a href="/">百度链接</a>
+                <a href="/">百度链接</a>
+                <a href="/">百度链接</a>
+            </nav>
+            <!--<object style="height: 100px; width: 100px;" data="/"></object>-->
+            <select id="select" onchange="selectChange(this.value)">
+                <optgroup label="第一部分">
+                    <option value="111" label="111"></option>
+                    <option value="222" label="222"></option>
+                </optgroup>
+                <optgroup label="第二部分">
+                    <option value="333" label="333"></option>
+                </optgroup>
+            </select>
+            <span>下载进度：</span>
+            <progress value="22" max="100" id="downLoad"></progress>
+            <p>文本文本：'文本文本'，文本文本：<q>文本文本</q></p>
+            <del><p>文本文本<big>文本文本</big><small>文本文本</small></p></del>
+            <p>2<sup>3</sup> = 8<br>2<sub>3</sub></p>
+            <u><p>文本文本<time datetime="2000" id="time">2000</time>年是世纪年</p></u>
+        </section>
+    <script>
+        console.log(document.getElementById('time').getAttribute("datetime"))
+        function selectChange(ele) {
+            console.log(ele)
+        }
+        document.write('hello world')
+        let load = document.getElementById('downLoad')
+        setInterval(() => {
+            if (load.value == 100) {
+                load.value = 0
+            }
+            load.value = parseInt(load.value) + 10
+        }, 500)
+        function loadHtml() {
+            console.log('html has loaded !!!')
+        }
+        function isNull(value) {
+            let flag = true
+            if (value !== null && typeof value !== 'undefined' && value.toString().trim() !== '' || value === 0) {
+                flag = false
+            }
+            return flag
+        }
+        let s1 = ''
+        console.log(isNull(s1))
+    </script>
+    </body>
+</html>

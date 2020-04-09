@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b41969e8-f7fb-4080-8ef9-876bac222f32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/funcPromise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/function.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsStudy/deShake.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsStudy/getMonth.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JQuery.js" beforeDir="false" afterPath="$PROJECT_DIR$/JQuery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/canvas.html" beforeDir="false" afterPath="$PROJECT_DIR$/canvas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inport.html" beforeDir="false" afterPath="$PROJECT_DIR$/inport.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsStudy/H5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsStudy/call.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsStudy/timeFormat.html" beforeDir="false" afterPath="$PROJECT_DIR$/jsStudy/timeFormat.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,43 +20,43 @@
     <session id="-2127171430">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="8" />
+          <entry key="project.open.time.1" value="13" />
           <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.2" value="5" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="24" />
-          <entry key="js" value="13" />
+          <entry key="html" value="28" />
+          <entry key="js" value="14" />
           <entry key="png" value="1" />
           <entry key="ts" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="24" />
+          <entry key="HTML" value="28" />
           <entry key="Image" value="1" />
-          <entry key="JavaScript" value="13" />
+          <entry key="JavaScript" value="14" />
           <entry key="TypeScript" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="5569" />
-          <entry key="js" value="70" />
+          <entry key="html" value="8455" />
+          <entry key="js" value="108" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="5569" />
-          <entry key="JavaScript" value="70" />
+          <entry key="HTML" value="8455" />
+          <entry key="JavaScript" value="108" />
         </counts>
       </usages-collector>
     </session>
@@ -67,30 +64,35 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/study.html">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/jsStudy/call.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="17" column="17" selection-start-line="13" selection-start-column="8" selection-end-line="17" selection-end-column="17" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#1;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/inport.html">
+        <entry file="file://$PROJECT_DIR$/jsStudy/H5.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+            <state relative-caret-position="501">
+              <caret line="82" column="78" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
+              <folding>
+                <element signature="n#head#0;n#html#0;n#!!top" />
+                <element signature="n#address#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#blockquote#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/function.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2002">
-              <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="94" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BOM.html">
+        <entry file="file://$PROJECT_DIR$/jsStudy/timeFormat.html">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -107,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/jsStudy/deShake.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1606">
-              <caret line="73" column="22" lean-forward="true" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+              <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -128,6 +130,11 @@
               <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/H5.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -174,6 +181,9 @@
         <option value="$PROJECT_DIR$/inline.html" />
         <option value="$PROJECT_DIR$/JQuery.js" />
         <option value="$PROJECT_DIR$/inport.html" />
+        <option value="$PROJECT_DIR$/jsStudy/call.js" />
+        <option value="$PROJECT_DIR$/jsStudy/call.html" />
+        <option value="$PROJECT_DIR$/jsStudy/H5.html" />
       </list>
     </option>
   </component>
@@ -184,10 +194,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="1974" />
+    <option name="y" value="-8" />
+    <option name="width" value="1874" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -256,17 +266,26 @@
       <workItem from="1585555898924" duration="3607000" />
       <workItem from="1585621702867" duration="1352000" />
       <workItem from="1585902027563" duration="468000" />
+      <workItem from="1586230977120" duration="1364000" />
+      <workItem from="1586311510490" duration="2001000" />
+      <workItem from="1586324303982" duration="287000" />
+      <workItem from="1586327717896" duration="1445000" />
+      <workItem from="1586331648540" duration="54000" />
+      <workItem from="1586340271168" duration="2027000" />
+      <workItem from="1586395436366" duration="345000" />
+      <workItem from="1586399390498" duration="6555000" />
+      <workItem from="1586415164306" duration="2098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69871000" />
+    <option name="totallyTimeSpent" value="86047000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="1974" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10033003" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18236254" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -332,9 +351,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/animate.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/H5.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Promise.js">
@@ -2443,14 +2459,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/study.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inport.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/function.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2002">
-          <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="94" selection-end-column="69" />
+        <state relative-caret-position="2024">
+          <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BOM.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsStudy/call.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="17" selection-start-line="13" selection-start-column="8" selection-end-line="17" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsStudy/timeFormat.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/canvas.html">
@@ -2463,7 +2507,7 @@
     <entry file="file://$PROJECT_DIR$/jsStudy/deShake.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1606">
-          <caret line="73" column="22" lean-forward="true" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+          <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -2481,19 +2525,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/H5.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/echarts.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/demo.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/study.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inport.html">
+    <entry file="file://$PROJECT_DIR$/jsStudy/H5.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+        <state relative-caret-position="501">
+          <caret line="82" column="78" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+            <element signature="n#address#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#blockquote#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
