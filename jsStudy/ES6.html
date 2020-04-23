@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>
+            go
+        </div>
+        <script>
+            console.log('hello')
+            // 迭代器用法
+            let arr = make(['a', 'b'])
+
+            console.log(arr.next())
+            console.log(arr.next())
+            console.log(arr.next())
+            function make(arr) {
+                let count = 0
+                return {
+                    next: function() {
+                        return count < arr.length ? arr[count++]
+                            : 'undefined'
+                    }
+                }
+            }
+            // Symbol 用法
+            // let s = Symbol('wang')
+            // console.log(s, s.constructor, typeof s, s.toString())
+            // let obj = {
+            //     toString: function() {
+            //         return 'wang'
+            //     }
+            // }
+            // let o = Symbol(obj)
+            // console.log(o)
+            // let symbol = Symbol()
+            // let a = {
+            //     [symbol]: 'wang'
+            // }
+            // a[symbol] = 'wang'
+            // console.log(a)
+            // let s1 = Symbol('wang')
+            // let s2 = Symbol('wang')
+            // let s1 = Symbol.for('wang')
+            // let s2 = Symbol.for('wang')
+            // console.log(s1 === s2)
+            // map, set 语句
+            /**
+             *
+             */
+            // let s = new Set([1, 2, 1, 3])
+            // // s = Array.from(s)
+            // s.add(NaN, NaN)
+            // let m = new Map()
+            // m.set('name', 'wang')
+            // m.set('age', 16)
+            // console.log(m.get('name'))
+            // Promise 语句执行是在当前代码块的末尾
+            // let x = Reflect.apply(Math.floor, null, [1.8])
+            // console.log(x)
+            // let obj = {
+            //     name: 'wang',
+            //     age: 1,
+            //     get xi() {
+            //         return this.name + this.age
+            //     },
+            //     set hello(value) {
+            //         return value
+            //     }
+            // }
+            // console.log(Reflect.get(obj, 'name'), Reflect.get(obj, 'age'), Reflect.get(obj, 'xi'), Reflect.set(obj, 'hello', 'world'))
+            // let proxy = new Proxy({}, {
+            //     get (target, proxyKey, ri) {
+            //         console.log(arguments, '获得值')
+            //         return 10
+            //     },
+            //     set (target, proxyKey, value, ri) {
+            //         console.log(arguments, '赋值')
+            //         target[proxyKey] = value
+            //         return target[proxyKey]
+            //     }
+            // })
+            // console.log('1', proxy.name)
+            // console.log('2', ++proxy.name)
+        </script>
+    </body>
+</html>

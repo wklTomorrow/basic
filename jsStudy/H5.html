@@ -3,6 +3,11 @@
     <head>
         <meta charset="utf-8">
         <base href="https://www.baidu.com" target="_blank">
+        <style>
+            .hello {
+                color: red;
+            }
+        </style>
     </head>
     <body onload="loadHtml()">
         <a href=""><p>百度链接</p></a>
@@ -82,7 +87,30 @@
             <p>2<sup>3</sup> = 8<br>2<sub>3</sub></p>
             <u><p>文本文本<time datetime="2000" id="time">2000</time>年是世纪年</p></u>
         </section>
+        <div id="attr">文本</div>
+        <button onclick="deBunce()">函数除抖</button>
     <script>
+        let timer = null
+
+        /**
+         * 函数除抖
+         */
+        function deBunce() {
+            clearTimeout(timer)
+            timer = setTimeout(() => {
+                console.log('按钮被点击')
+            }, 3000)
+        }
+        let obj = document.getElementById('attr')
+        let nos = document.createAttribute('class')
+        nos.value = 'hello'
+        obj.setAttributeNode(nos)
+        obj.style.cssText = 'display: block; border: 1px solid red'
+        let zz = (function test(a, b) {
+            return a + b
+        })(1, 3)
+        console.log(zz)
+        // console.log(test(2, 3))
         console.log(document.getElementById('time').getAttribute("datetime"))
         function selectChange(ele) {
             console.log(ele)
