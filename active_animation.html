@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .main {
+            height: 100px;
+            width: 600px;
+            position: relative;
+            left: 200px;
+            top: 200px;
+            display: flex;
+            position: relative;
+        }
+        .sec, .fir, .thi {
+            flex: 1;
+            height: 100%;
+            cursor: pointer;
+        }
+        .fir {
+            background-color: #5daf34;
+        }
+        .sec {
+            background-color: lightpink;
+        }
+        .thi {
+            background-color: lightgreen;
+        }
+        #lin {
+            position: absolute;
+            height: 4px;
+            background-color: #178DFF;
+            bottom: -4px;
+            width: 200px;
+        }
+        .go-right {
+            left: 200px !important;
+            width: 200px;
+            animation: goR 0.5s;
+        }
+        @keyframes goR {
+            0% {
+                left: 0;
+                width: 200px;
+            }
+            50% {
+                left: 0;
+                width: 400px;
+            }
+            100% {
+                left: 200px;
+                width: 200px;
+            }
+        }
+        .go-left {
+            right: 200px !important;
+            width: 200px;
+            animation: goL 0.5s;
+        }
+        @keyframes goL {
+            0% {
+                right: 0;
+                width: 200px;
+            }
+            50% {
+                right: 0px;
+                width: 400px;
+            }
+            100% {
+                right: 200px;
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="fir" onclick="onAnima(0)"></div>
+        <div class="sec" onclick="onAnima(1)"></div>
+        <div class="thi" onclick="onAnima(2)"></div>
+        <div id="lin"></div>
+    </div>
+    <script>
+        let ids = document.getElementById('lin')
+        ids.style.left = localStorage.getItem('ani_count') * 200 + 'px'
+        let index = 0
+        function onAnima(ele) {
+            let count = localStorage.getItem('ani_count') || 0
+            if (ele != count) {
+                if (ele > count) {
+                    goRight(ele - count)
+                } else {
+                    goLeft(count - ele)
+                }
+            }
+            localStorage.setItem('ani_count', ele)
+        }
+        function goLeft(ele) {
+            ids.style.left = null
+            let right = ids.style.right ? parseInt(ids.style.right) : 0
+            ids.style.animation = ''
+            index++
+            let ani = document.styleSheets[0]
+            let str = `@keyframes goLL${index}{
+             0%{
+                right:${right}px;
+                width:200px
+             }
+             50%{
+                right:${right}px;
+                width:${200 + 200*ele}px
+             }
+             100%{
+                right:${right + 200*ele}px;
+                width:${200}px
+             }}`
+            ani.deleteRule(ani.cssRules.length - 1)
+            ani.insertRule(str, ani.cssRules.length)
+            ids.style.right = right + 200*ele + 'px'
+            ids.style.animation = `goLL${index} 0.5s`
+        }
+        function goRight(ele) {
+            ids.style.right = null
+            let left = ids.style.left ? parseInt(ids.style.left) : 0
+            ids.style.animation = ''
+            index++
+            let ani = document.styleSheets[0]
+            let str = `@keyframes goRR${index}{
+             0%{
+                left:${left}px;
+                width:200px
+             }
+             50%{
+                left:${left}px;
+                width:${200 + 200*ele}px
+             }
+             100%{
+                left:${left + 200*ele}px;
+                width:${200}px
+             }}`
+            ani.deleteRule(ani.cssRules.length - 1)
+            ani.insertRule(str, ani.cssRules.length)
+            ids.style.left = left + 200*ele + 'px'
+            ids.style.animation = `goRR${index} 0.5s`
+        }
+    </script>
+</body>
+</html>
