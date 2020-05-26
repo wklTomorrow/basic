@@ -9,21 +9,72 @@
         </div>
         <script>
             console.log('hello')
-            // 迭代器用法
-            let arr = make(['a', 'b'])
+            // class用法
+            class c1 {
+                constructor() {
+                    this.id = '11'
+                    this.value = 'hello'
+                }
 
-            console.log(arr.next())
-            console.log(arr.next())
-            console.log(arr.next())
-            function make(arr) {
-                let count = 0
-                return {
-                    next: function() {
-                        return count < arr.length ? arr[count++]
-                            : 'undefined'
-                    }
+                static say() {
+                    console.log('hello world')
                 }
             }
+            let c2 = new c1
+            c1.say()
+            console.log(c2.id)
+            // class C {
+            //     constructor() {
+            //         this.ele = 'hhhh'
+            //     }
+            //
+            //     get value() {
+            //         console.log('getter')
+            //         return this.ele
+            //     }
+            //
+            //     set value(ele) {
+            //         console.log('setter')
+            //         this.ele = ele
+            //     }
+            //
+            //     static getName() {
+            //         return 'heeee'
+            //     }
+            // }
+            // console.log((new C()).value)
+            // console.log((new C()).str)
+            // class C1 extends C {
+            //     constructor() {
+            //         super()
+            //     }
+            // }
+            // console.log((new C1()).str)
+            // let cc = class me {
+            //     constructor(str) {
+            //         this.str = me.getName()
+            //     }
+            //
+            //     static getName() {
+            //         return 'hello'
+            //     }
+            // }
+            // console.log(cc())
+            // // 迭代器用法
+            // let arr = make(['a', 'b'])
+            //
+            // console.log(arr.next())
+            // console.log(arr.next())
+            // console.log(arr.next())
+            // function make(arr) {
+            //     let count = 0
+            //     return {
+            //         next: function() {
+            //             return count < arr.length ? arr[count++]
+            //                 : 'undefined'
+            //         }
+            //     }
+            // }
             // Symbol 用法
             // let s = Symbol('wang')
             // console.log(s, s.constructor, typeof s, s.toString())

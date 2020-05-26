@@ -1,24 +1,119 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <style>
         .r {
             width: 400px;
             height: 400px;
+            /*background-color: red;*/
+            /*background-image: linear-gradient(#e66465, #9198e5);*/
+            display: flex;
+        }
+        .a {
+            flex: 2;
+            background-color: #178dff;
+        }
+        .b {
+            flex: 1;
             background-color: red;
-            background-image: linear-gradient(#e66465, #9198e5);
+        }
+        .c {
+            flex: 1;
+            background-color: black;
+        }
+
+        .bkg {
+            border: 1px solid #178DFF;
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            z-index: 999999;
+            top: 100px;
+            left: 300px;
+            width: 200px;
+            height: 50px;
+            overflow: hidden;
+        }
+
+        /*.bkg:hover .none-co{*/
+            /*width: 100%;*/
+        /*}*/
+
+        .none-co {
+            width: 200px;
+            display: inline-block;
+            height: 100%;
+            background-color: #178DFF;
+            /*transition: width 1s;*/
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -999;
+            animation: move 1s;
+        }
+         @keyframes move {
+             0% {
+                 left: -200px;
+             }
+             100% {
+                 left: 0;
+             }
+         }
+
+        #ss {
+            display: inline-block;
+            overflow: hidden;
+            width: 400px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0px;
+            z-index: -999;
+            animation: move 1s;
+        }
+
+        .dd {
+            display: inline-block;
+            height: 100%;
+            width: 150px;
+            background-color: red;
+        }
+
+        .d2 {
+            display: inline-block;
+            height: 100%;
+            width: 200px;
+            background-color: #178DFF;
         }
         </style>
     </head>
     <body>
-        <div class="r">
-            <progress id="pro" value="0" max="100"></progress>
-            <!-- <button onclick=showt()>进度条</button> -->
-            <!-- <meter min="0" max="100" value="65"></meter> -->
-            <select multiple>
-                <option value="aa">aa</option>
-                <option value="bb" selected>bb</option>
-            </select>
+        <span class="bkg" id="test">
+            <span id="ss">
+                <div class="dd"></div>
+                <div class="d2"></div>
+            </span>
+            <span class="fff">移动样式</span>
+            <!--<span id="co" class="none-co"></span>-->
+        </span>
+        <!--<div class="r">-->
+            <!--<div class="a"></div>-->
+            <!--<div class="b"></div>-->
+            <!--<div class="c"></div>-->
+        <!--</div>-->
+        <!--<div class="r">-->
+            <!--<div class="b"></div>-->
+            <!--<div class="c"></div>-->
+        <!--</div>-->
+            <!--<div id="dom"></div>-->
+            <!--<progress id="pro" value="0" max="100"></progress>-->
+            <!--&lt;!&ndash; <button onclick=showt()>进度条</button> &ndash;&gt;-->
+            <!--&lt;!&ndash; <meter min="0" max="100" value="65"></meter> &ndash;&gt;-->
+            <!--<select multiple>-->
+                <!--<option value="aa">aa</option>-->
+                <!--<option value="bb" selected>bb</option>-->
+            <!--</select>-->
             <!-- <input type="color">
             <input type="date">
             <input type="datetime">
@@ -42,9 +137,127 @@
             <input type="text">
             <input type="time">
             <input type="week"> -->
-        </div>
         <!-- <button onclick="showCon()">显示</button> -->
         <script>
+            let test =  document.getElementById('test')
+            let count = 1
+            let tar = document.getElementById('co')
+            test.onmouseover = function (event) {
+                if (count === 1) {
+                    let t1 = event.clientX
+                    let t2 = event.clientY
+                    let s1 = test.offsetLeft
+                    let s2 = test.offsetTop
+                    let h2 = test.clientHeight + s2 + 1
+                    let h1 = test.clientWidth + s1 + 1
+                    console.log(t1, h1)
+                    if (t2 === s2 && t1 > s1) {
+                        console.log('top')
+                    } else if (t1 === s1 && t2 > s2) {
+                        console.log('left')
+                    } else if (t1 === h1 && t2  < h2 ) {
+                        console.log('right')
+                        tar.classList.add('')
+                    } else if (t2 === h2 && t1 < h1) {
+                        console.log('bottom')
+                    }
+
+                    count ++
+                }
+            }
+            // let dom = document.getElementById('dom')
+
+            // let key = 1
+            // function getThis() {
+            //     let val = key
+            //     for (let i = 1000000; i > 0; i--) {
+            //         val = val + i
+            //     }
+            //     key = val
+            //     console.log(key)
+            // }
+            // // function getThis() {
+            // //     for (let i = 1000000; i > 0; i--) {
+            // //         key = key + i
+            // //     }
+            // //     console.log(key)
+            // // }
+            // //
+            // console.log((new Date()).getTime())
+            // getThis()
+            // console.log((new Date()).getTime())
+            // let node = function Node() {
+            //     this.name = 'wang'
+            //     this.value = '1100'
+            //     this.fn = null
+            //     {
+            //         this.fn = function (e) {
+            //             return e + 'hello'
+            //         }
+            //     }
+            //     this.age = '111'
+            // }
+            // let obj = {child: { key: false, vv: 'hello' }}
+            // obj.child.get = function () {
+            //     return this.value
+            // }
+            // let n = new node()
+            // console.log(n, n.fn('wang'))
+            // Object.defineProperties(node.prototype, obj)
+            // console.log(new node())
+            // function fn() {
+            //
+            // }
+            // fn.prototype.go = function () {
+            //     this.age = 10
+            //     return this.age
+            // }
+            // let z = new fn()
+            // console.log(z.go())
+            // fn.prototype.go = function () {
+            //     this.age = 20
+            //     return this.age
+            // }
+            // console.log(z.go())
+            // console.log(fn.prototype.constructor, fn, fn.prototype.constructor === fn, z.__proto__, z.__proto__ === fn.prototype, fn.__proto__ === Function.prototype)
+            // function fc() {
+            //     console.log(1)
+            //     setTimeout(() => {
+            //         console.log(2)
+            //     }, 0)
+            //     console.log(3)
+            // }
+            // fc()
+            // function fun(fn) {
+            //     let y = {}
+            //     return ( x = 1
+            //     )
+            // }
+            // var fff = fun(function zz(str) {
+            //     return str
+            // })
+            // console.log(fff)
+            // console.log(fff('hello'))
+            // console.log(fff('world'))
+            // function go(fn) {
+            //     let aa = Object.create({})
+            //     return (function goThis(str) {
+            //         let hn = aa[str]
+            //         return hn || (aa[str] = fn(str))
+            //     })
+            // }
+            //
+            // function y() {
+            //     console.log('y')
+            // }
+            //
+            // function x() {
+            //     console.log('x')
+            // }
+            //
+            // var z = go(y)
+            // var hh = z('str')
+            // debugger
             // function showt() {
             //     let timer
             //     var x = document.getElementById("pro").value 
