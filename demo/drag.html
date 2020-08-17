@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        #drag {
+            height: 100px;
+            width: 100px;
+            background-color: lightpink;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+<div id="drag">
+</div>
+    <script>
+        // 拖拽对象封装
+        (function () {
+            let obj = new Object
+
+            function Drag(dom) {
+                this.domEle = document.getElementById(dom)
+
+                this.sourseX = 0
+                this.sourseY = 0
+                this.mouseTarX = 0
+                this.mouseTarY = 0
+
+                this.Init()
+            }
+
+            Drag.prototype = {
+                constructor: Drag,
+                Init: function() {
+                    console.log(this)
+                    this.setAttribute()
+                },
+                getDomStyles: function(dom, property) {
+                    return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(dom, false)[property] : dom.currentStyle[property];
+                },
+                setAttribute: function() {
+                    let _this = this
+                    _this.domEle.addEventListener('mousedown', mouseDown, false)
+
+                    function mouseDown (e) {
+                        _this.mouseTarX = e.pageX
+                        _this.mouseTarY = e.pageY
+                        let trans = _this.getDomStyles(_this.domEle, 'transform')
+                        if (trans == 'none') {
+                            _this.domEle.style.transform = 'translate: (0px, 0px)'
+                            _this.sourseX = 0
+                            _this.sourseY = 0 
+                        } else {
+                            let match = trans.match(/(\d+)/g)
+                            _this.sourseX = parseFloat(match[4])
+                            _this.sourseY = parseFloat(match[5])
+                        }
+                        _this.domEle.addEventListener('mousemove', mouseMove, false)
+                        _this.domEle.addEventListener('mouseup', mouseUp, false)
+
+                        function mouseMove(e) {
+                            let x = e.pageX - _this.mouseTarX + _this.sourseX
+                            let y = e.pageY - _this.mouseTarY + _this.sourseY
+                            _this.domEle.style.transform = `translate(${x}px, ${y}px)`
+                        }
+                        function mouseUp(e) {
+                            _this.domEle.removeEventListener('mousemove', mouseMove, false)
+                            let x = e.pageX - _this.mouseTarX + _this.sourseX
+                            let y = e.pageY - _this.mouseTarY + _this.sourseY
+                            _this.domEle.style.transform = `translate(${x}px, ${y}px`
+                            _this.domEle.addEventListener('mouseup', mouseUp, false)
+                        }
+                    }
+                },
+            }
+            window.Drag = Drag
+        })()
+        new Drag('drag')
+        // let dom = document.getElementById('drag')
+        // dom.addEventListener('mousedown', mouseDown, false)
+        // dom.addEventListener('mouseup', mouseUp, false)
+        // let point = {
+
+        // }
+        // let sourse = {
+
+        // }
+        // let tar = {
+
+        // }
+        // let tarObj = {
+
+        // }
+        // function mouseDown(e) {
+        //     console.log(e)
+            // point.x = e.pageX
+            // point.y = e.pageY
+            // console.log(point)
+            // let trans = getDomStyle(dom, 'transform')
+            // if (trans == 'none') {
+            //     dom.style.transform = 'translate: (0px, 0px)'
+            //     tarObj.x = 0
+            //     tarObj.y = 0 
+            // } else {
+            //     let match = trans.match(/(\d+)/g)
+            //     tarObj.x = parseFloat(match[4])
+            //     tarObj.y = parseFloat(match[5])
+            // }
+            
+        //     document.addEventListener('mousemove', mouseMove, false)
+        // }
+        // function mouseMove(e) {
+            // tar.x = e.pageX
+            // tar.y = e.pageY
+            // let x = tar.x - point.x + tarObj.x
+            // let y = tar.y - point.y + tarObj.y
+            // dom.style.transform = `translate(${x}px, ${y}px)`
+        // }
+        // function mouseUp(e) {
+        //     console.log(e)
+            // document.removeEventListener('mousemove', mouseMove, false)
+            // sourse.x = e.pageX
+            // sourse.y = e.pageY
+            // let x = parseFloat(sourse.x) - parseFloat(point.x) + tarObj.x
+            // let y = parseFloat(sourse.y) - parseFloat(point.y) + tarObj.y
+            // dom.style.transform = `translate(${x}px, ${y}px`
+        // }
+        // function getDomStyle(dom, property) {
+        //     return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(dom, false)[property] : dom.currentStyle[property];
+        // }
+    </script>
+</body>
+</html>

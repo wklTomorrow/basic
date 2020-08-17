@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>go</div>
+        <script>
+            function _Promise(fn) {
+                let self = this
+                self.status = 'pending'
+                self.value = ''
+                function resolve(value) {
+                    self.value = value
+                    self.status = 'resolve'
+                }
+                function reject(value) {
+                    self.value = 'value',
+                    self.status = 'reject'
+                }
+                try {
+                    fn(resolve, reject)
+                } catch (e) {
+                    reject(e)
+                }
+            }
+            function onPromiseFn(prom, fns, resolve, reject) {
+                if (prom === fns) {
+                    return reject(new TypeError('circle error'))
+                }
+                if (fns !== null) {
+                    let zz = fns.then
+                    if (typeof zz === 'function') {
+                        then.call(fns)
+                    } else {
+                        resolve(zz)
+                    }
+                }
+            }
+            _Promise.prototype.then = function(onfulfilled, onReject) {
+                let self = this
+                onfulfilled = typeof onfulfilled === 'function' ? onfulfilled : function (val) {return val}
+                onReject = typeof onReject === 'function' ? onReject : function (val) {return val}
+                let prom = new _Promise(function (resolve, reject) {
+                    if (self.status === 'resolve') {
+                        setTimeout(function() {
+                            let fns = onfulfilled(self.value)
+                            onPromiseFn(prom, fns, resolve, reject)
+                        })
+                    }
+                    if (self.status === 'reject') {
+                        setTimeout(function() {
+                            let fns = onfulfilled(self.value)
+                            onPromiseFn(prom, fns, resolve, reject)
+                        })
+                    }
+                })
+                return prom
+            }
+            let zz = new _Promise(function (resolve, reject) {
+                resolve(1)
+            }).then(function (a, b) {
+                console.log(a, b)
+            })
+            debugger
+        </script>
+    </body>
+</html>

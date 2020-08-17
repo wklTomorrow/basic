@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            .iframe {
+                /* height: 100px;
+                width: 100px; */
+                overflow: hidden;
+                border: 1px solid red;
+            }
+            #fa {
+                height: 100px;
+                width: 100px;
+                border: 1px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="iframe">
+            父框架
+        </div>
+        <div class="iframe">
+            <iframe src="./i2.html"></iframe>
+        </div>
+        <div id="fa"></div>
+        <script>
+            function fa() {
+                console.log('fa')
+            }
+            fa()
+        </script>
+    </body>
+</html>

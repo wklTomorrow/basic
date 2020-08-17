@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .main {
+            height: 200px;
+            width: 200px;
+            position: relative;
+            left: 200px;
+            top: 200px;
+        }
+        .m-w {
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            border: 2px solid #178DFF;
+            border-radius: 50%;
+        }
+        #h, #m, #s {
+            position: absolute;
+        }
+        #h {
+            height: 25px;
+            width: 2px;
+            left: 100px;
+            top: 100px;
+            background-color: lightpink;
+            transform: rotate(0deg);
+            transform-origin: 0 0;
+        }
+        #m {
+            height: 50px;
+            width: 2px;
+            left: 100px;
+            top: 100px;
+            background-color: lightgreen;
+            transform: rotate(0deg);
+            transform-origin: 0 0;
+        }
+        #s {
+            height: 75px;
+            left: 100px;
+            top: 100px;
+            width: 2px;
+            background-color: lightblue;
+            transform: rotate(90deg);
+            transform-origin: 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="m-w"></div>
+        <!--<div id="h"></div>-->
+        <div id="m"></div>
+        <!--<div id="s"></div>-->
+    </div>
+    <script>
+        let h = document.getElementById('m')
+        // setInterval(function () {
+        //     h.style.transform = 'rotate(180deg)'
+        // },1000)
+        function rotation() {
+            let time = (new D)
+        }
+        setInterval(rotation, 1000)
+    </script>
+</body>
+</html>

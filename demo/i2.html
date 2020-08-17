@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            .iframe {
+                height: 100px;
+                width: 100px;
+                border: 1px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="iframe">
+            子框架
+        </div>
+        <div class="iframe">
+
+        </div>
+        <button onclick="onGetFa()">获取父元素的事件</button>
+        <script>
+            function children() {
+                console.log('chil')
+            }
+            children()
+            function onGetFa() {
+                // debugger
+                // window.parent.document.getElementById('pa').style.border = '1px solid'
+                parent.window.pa()
+            }
+        </script>
+    </body>
+</html>

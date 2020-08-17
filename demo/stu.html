@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            select[value = '1'] {
+                color: red;
+            }
+            .go, .test {
+                color: red;
+            }
+            option[select = 'true'] {
+                color: red;
+            }
+            .test {
+                width: 100px;
+                height: 100px;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
+                border: 1px solid red;
+            }
+            p {
+                position: relative;
+                line-height: 20px; 
+                max-height: 40px;
+                width: 80px;
+                overflow: hidden;
+            }
+            p::after{
+                content: "..."; position: absolute; bottom: 0; right: 0; padding-left: 40px;
+                background: -webkit-linear-gradient(left, transparent, #fff 55%);
+                background: -o-linear-gradient(right, transparent, #fff 55%);
+                background: -moz-linear-gradient(right, transparent, #fff 55%);
+                background: linear-gradient(to right, transparent, #fff 55%);
+            }
+
+            .ca {
+                display: flex;
+                height: 100px;
+                width: 100px;
+                border: 1px solid red;
+                flex-direction: column;
+            }
+
+            .b {
+                flex: 1;
+                /* justify-self: center; */
+                display: flex;
+                align-items: center;
+            }
+            body {
+                position: relative;
+            }
+            .dd {
+                border: 1px solid;
+                height: 100px;
+                width: 1000px;
+            }
+            .cc {
+                display: inline-block;
+                /* width: 20px; */
+                height: 20px;
+                /* border: 1px solid red; */
+            }
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            .len {
+                /* width: 100px; */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="dd">
+            <span class="cc len">11111</span>
+            <span class="cc">22222222</span>
+        </div>
+        <!-- <div class="ca">
+            <div class="b">
+                <div>文本</div>
+            </div>
+            <div class="b">
+                <div>wenbe</div>
+            </div>
+        </div>
+        <div class="test">
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        </div>
+        <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p> -->
+        <!-- <div>go</div>
+        <div class="go test">hello</div>
+        <select value='1'>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select> -->
+            <!-- <input id="input" type="text" />
+            <div id="text"></div> -->
+        <script>
+            // // 判断两个字符串的最短编辑距离
+            // function getStr(str1, str2) {
+            //     const len1 = str1.length
+            //     const len2 = str2.length
+            //     const newArr = []
+            //     console.log(newArr)
+            //     for (let i = 0 ; i <= len1; i++) {
+            //         newArr[i] = []
+            //         for (let j = 0; j <= len2; j++) {
+            //             if (i == 0) {
+            //                 newArr[i][j] = j
+            //             } else if (j == 0){
+            //                 newArr[i][j] = i  
+            //             } else {
+            //                 let con = 0
+            //                 if (str1[i - 1] != str2[j - 1]) {
+            //                     con = 1
+            //                 }
+            //                 newArr[i][j] = Math.min(newArr[i - 1][j] + 1, newArr[i - 1][j - 1] + con, newArr[i][j - 1] + 1)
+            //             }
+            //         }
+            //     }
+            //     return newArr[len1][len2]
+            // }
+            // console.log(getStr('helo', 'helll'))
+            // [1, 10, 2, 9] // 和等于11的
+            // function fn(a) {
+            //     let newArr = []
+            //     function getNum(arr) {
+            //         if (arr.length) {
+            //             for (let i = 0; i < arr.length; i++) {
+            //                 for (let j = i + 1; j < arr.length; j++) {
+            //                     if ((arr[i] + arr[j]) === 11) {
+            //                         newArr.push([arr[i], arr[j]])
+            //                         arr.splice(i, 1)
+            //                         arr.splice(j - 1, 1)
+            //                         getNum(arr)
+            //                         break
+            //                     }
+            //                 }
+            //             }
+            //         } else {
+            //             return 
+            //         }
+            //     }
+            //     getNum(a)
+            //     return newArr
+            // }
+            // console.log(fn([1, 2, 10, 9]))
+            // aBc => AbC
+            // let str = 'aBc'
+            // str.replace(/[a-zA-Z]/g, a => {
+            //     return /[a-z]/.test(a) ? a.toUpperCase() : a.toLowerCase()
+            // })
+            // 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。
+            // 你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。
+            // [2, 3, 7, 11, 12] {9} [2, 7]
+            // function fn(arr, tar) {
+                
+            //     return 
+            // }
+            // 随机生成一个长度为 10 的整数类型的数组，例如 [2, 10, 3, 4, 5, 11, 10, 11, 20]，
+            // 将其排列成一个新数组，要求新数组形式如下，例如 [[2, 3, 4, 5], [10, 11], [20]]
+            // let arr = []
+            // for (let i = 0; i < 10; i++) {
+            //     let 
+            // }
+            // (5).add(3).minus(2)
+            // Number.prototype.add = function(num) {
+            //     return this + num
+            // }
+            // Number.prototype.minus = function(num) {
+            //     return this - num
+            // }
+            // console.log((5).add(3).minus(2))
+            // debugger
+            // 实现LazyMan('Tony').eat('lunch').eat('dinner').sleepFirst(5).sleep(10).eat('junk food');
+            // Hi I am Tony
+            // 等待了5秒...
+            // I am eating lunch
+            // I am eating dinner
+            // 等待了10秒...
+            // I am eating junk food
+            // class LazyMan {
+            //     constructor(name) {
+            //         this.name = name
+            //         this.queue = []
+            //         setTimeout(() => {
+            //             this.next()
+            //         }, 0);
+            //     }
+            //     eat(str) {
+            //         let fn = () => {
+            //             setTimeout(() => {
+            //                 console.log(`I an eating ${str}`)
+            //                 this.next()
+            //             }, 0);
+            //         }
+            //         this.queue.push(fn)
+            //         return this
+            //     }
+            //     sleepFirst(ff) {
+            //         let fn = () => {
+            //             setTimeout(() => {
+            //                 console.log(`等待了${ff}...`)
+            //                 this.next()
+            //             }, ff);
+            //         }
+            //         this.queue.unshift(fn)
+            //         return this
+            //     }
+            //     sleep(ss) {
+            //         let fn = () => {
+            //             setTimeout(() => {
+            //                 console.log(`等待了${ss}...`)
+            //                 this.next()
+            //             }, ss);
+            //         }
+            //         this.queue.push(fn)
+            //         return this
+            //     }
+            //     next() {
+            //         let zz = this.queue.shift()
+            //         zz && zz()
+            //     }
+            // }
+            // function create(name) {
+            //     return new LazyMan(name)
+            // }
+            // var man = new create('wang')
+            // man.eat('lunch').eat('dinner').sleep(5000).eat('junk food').sleepFirst(1000)
+        </script>
+        <script>
+            // 如下：{1:222, 2:123, 5:888}，
+            // 请把数据处理为如下结构：[222, 123, null, null, 888, null, null, null, null, null, null, null]
+            // let obj = {1:222, 2:123, 5:888}
+            // let zz = Array.from({ length: 12 }, x => x = null).map((ele, index) => {
+            //     console.log(ele, index)
+            //     return obj[++index] || null
+            // })
+            // console.log(zz)
+            // debugger
+            // 计算1出现的次数，个位只算个位，十位只算十位
+            // const arr1 = [1, 2, 3];
+            // const arr2 = [3, 4, 5];
+            // const arr3 = [3, 6, 7];
+            // function go(...arr) {
+            //     let newArr = arr[0]
+            //     let i = 1
+            //     while (i < arr.length) {
+            //         let arrs = arr[i].filter(e => 
+            //             newArr.indexOf(e) > -1
+            //         )
+            //         newArr = arrs || newArr
+            //         i++
+            //     }
+            //     return newArr
+            // }
+            // let go = (...arr) => {
+            //     return arr.reduce((arrs, ele) => {
+            //         return arrs.filter(e =>
+            //             ele.includes(e)
+            //         )
+            //     })
+            // }
+            // let xx = go(arr1, arr2, arr3)
+            // debugger
+            // 红蓝蓝黄红黄蓝红红黄红
+            // let str = '红蓝蓝黄红黄蓝红红黄红'
+            // let obj = {
+            //     '红': 0,
+            //     '黄': 1,
+            //     '蓝': 2
+            // }
+            // let arr = str.split('')
+            // arr.sort((a, b) => {
+            //     return obj[b] - obj[a]
+            // }
+            // )
+            // console.log(arr)
+            // 用 setTimeout 实现 setInterval
+            // function _c() {
+            //     let count = true
+            //     function s() {
+            //         if (count) {
+            //             setTimeout(() => {
+            //                 console.log(1)
+            //                 return s()
+            //             }, 1000)
+            //         }
+            //     }
+            //     return s()
+            // }
+            // _c()
+            // 数组去重
+            // function del(arr) {
+            //     let newArr = []
+            //     let i = 0
+            //     while (i < arr.length) {
+            //         if (newArr.indexOf(arr[i]) === -1) {
+            //             newArr.push(arr[i])
+            //         }
+            //         i++
+            //     }
+            //     return newArr
+            // }
+            // del([1, 2, 1, 3, 2, 3, 2])
+            // let inp = document.getElementById('input')
+            // let dd = document.getElementById('text')
+            
+            // let data = { values: '' }
+            // Object.defineProperty(data, 'values', {
+            //     set(e) {
+            //         inp.value = e
+            //         dd.innerText = e
+            //     },
+            //     get() {
+            //        return data.values
+            //     }
+            // })
+            // inp.onkeyup = function(e) {
+            //     data.values = e.target.value
+            // }
+            // console.log(fn)
+        </script>
+        <script>
+            // [1,2,3,4,5,6,7,8,9,10,11,12,13]
+            // let arr = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+            // function getThis(arr) {
+            //     let len = Math.ceil(arr.length / 2)
+            //     let tarArr = arr.slice(0, len)
+            //     let conArr = arr.slice(len)
+            //     let newArr = []
+            //     if (conArr.length) {
+            //         newArr = getThis(conArr)
+            //     }
+            //     console.log(tarArr, newArr)
+            //     let a = _concat(tarArr, newArr, conArr.length % 2 === 0 ? true : false)
+            //     return a
+            // }
+            // function _concat(tarArr, conArr, flag) {
+            //     let arr = []
+            //     if (!conArr.length) {
+            //         return tarArr
+            //     }
+            //     while (conArr.length) {
+            //         if (flag) {
+            //             arr.push(tarArr.shift(), conArr.shift())
+            //         } else {
+            //             arr.push(conArr.shift(), tarArr.shift())
+            //         }
+            //     }
+            //     if (tarArr.length) {
+            //         arr.push(tarArr.shift())
+            //     }
+            //     return arr
+            // }
+            // function reverse(arr) {
+            //     let i = 1
+            //     let out = []
+            //     while (arr.length) {
+            //         if (i % 2) {
+            //         out.unshift(arr.pop())
+            //         } else {
+            //         out.unshift(out.pop())
+            //         }
+            //         i++
+            //     }
+            //     return out
+            // }
+            // console.log(reverse(arr))
+            // console.log(getThis(arr))
+            // 再次封装拖拽对象
+            // class Dialog {
+            //     constructor() {
+            //         this.x = 0
+            //         this.y = 0
+            //         this.lastx = 0
+            //         this.lasty = 0
+            //         this.model = null
+            //         this.isMoveing = false
+            //     }
+            //     open() {
+            //         this.model = document.createElement('div')
+            //         this.model.style = `
+            //             height: 100px;
+            //             width: 100px;
+            //             position: absolute;
+            //             top: 0;
+            //             left: 0;
+            //             border: 1px solid red;
+            //         `
+            //         this.model.addEventListener('mousedown', this.mouseDown.bind(this))
+            //         this.model.addEventListener('mouseup', this.mouseUp.bind(this))
+            //         this.model.addEventListener('mousemove', this.mouseMove.bind(this))
+            //         document.body.appendChild(this.model)
+            //     }
+            //     mouseDown(e) {
+            //         this.isMoveing = true
+            //         this.x = e.clientX
+            //         this.y = e.clientY
+            //     }
+            //     mouseMove(e) {
+            //         if (this.isMoveing) {
+            //             this.model.style.transform = `translate(${e.clientX - this.x + this.lastx}px,${e.clientY - this.y + this.lasty}px)`
+            //         }
+            //     } 
+            //     mouseUp(e) {
+            //         this.isMoveing = false
+            //         this.lastx = e.clientX - this.x + this.lastx
+            //         this.lasty = e.clientY - this.y + this.lasty
+            //         this.model.style.transform = `translate(${this.lastx}px,${this.lasty})`
+            //     }
+            // }
+            // let zz = new Dialog()
+            // zz.open()
+            // findIndex()
+            // 柯里化函数再次实现
+            // function _curry(fn, args) {
+            //     let len = fn.length
+            //     let aa = args || []
+            //     return function() {
+            //         let _args = [...arguments]
+            //         aa.push(..._args)
+            //         if (aa.length < len) {
+            //             return _curry.call(this, fn, aa)
+            //         }
+            //         return fn.apply(this, aa)
+            //     }
+            // }
+            // function fn(a, b) {
+            //     return a + b
+            // }
+            // let zzs = _curry(fn, 1)
+            // console.log(zzs(2)) // 3
+            // let zzs = _curry(fn)
+            // console.log(zzs(1)(2)) // 3
+            // instanceOf封装实现
+            // function instance_of(L, R) {
+            //     let r = R.prototype
+            //     let l = L.__proto__
+            //     while (true) {
+            //         if (l === null) {
+            //             return false
+            //         }
+            //         if (l === r) {
+            //             return true
+            //         }
+            //         l = l.__proto__
+            //     }
+            // }
+            // function C(){}
+            // function D() {}
+            // var o = new C()
+            // console.log(instance_of(o, C), instance_of(o, D)) 
+            // js实现JSON.pares
+            // "{"name":"wang","test":"11"}"
+            // function _parse(str) {
+            //     let newObj = Object.create({})
+            //     let arr = str.replace('{', '').replace('}', '').split(',')
+            //     for (let i = 0; i < arr.length; i++) {
+            //         let arrs = arr[i].split(':')
+            //         newObj[arrs[0].replace('"', '').replace('"', '')] = arrs[1].replace('"', '').replace('"', '')
+            //     }
+            //     return newObj
+            // }
+            // let strs = _parse('{"name":"wang","test":"11"}')
+            //{"name":"wang","test":"11","val":{"value":1}}
+            // function _parse(str) {
+            //     let obj1 = {}
+            //     for (let i = 0; i < str.length; i++) {
+            //         if (str[i] === '{') {
+            //         }
+            //     }
+            // }
+            // 深copy的几种实现方式 // 深度优先遍历
+            // function copy(source, hash = new WeakMap) {
+            //     if (typeof source !== 'object' || source === null) return source
+            //     if (hash.has(source)) return hash.get(source)
+            //     let tar = Array.isArray(source) ? [] : {}
+            //     hash.set(source, tar)
+            //     for (let i in source) {
+            //         if (Object.prototype.hasOwnProperty.call(source, i)) {
+            //             if (typeof source[i] === 'object' || source[i] === null) {
+            //                 tar[i] = copy(source[i], hash)
+            //             } else {
+            //                 tar[i] = source[i]
+            //             }
+            //         }
+            //     }
+            //     return tar
+            // }
+            // function copy(source, arr = []) {
+            //     if (typeof source !== 'object' || source === null) return source
+            //     let tar = Array.isArray(source) ? [] : {}
+            //     let val = find(arr, source)
+            //     if (val) {
+            //         return val
+            //     }
+            //     arr.push({
+            //         source: source,
+            //         tar: tar
+            //     })
+            //     for (let i in source) {
+            //         if (Object.prototype.hasOwnProperty.call(source, i)) {
+            //             if (typeof source[i] === 'object' || source[i] === null) {
+            //                 tar[i] = copy(source[i], arr)
+            //             } else {
+            //                 tar[i] = source[i]
+            //             }
+            //         }
+            //     }
+            //     return tar
+            // }
+            // function find(arr, obj) {
+            //     for (let i = 0; i < arr.length; i++) {
+            //         if (arr[i].source === obj) {
+            //             return arr[i].tar
+            //         }
+            //     }
+            //     return null
+            // }
+            // var obj = {
+            //     name: '1'
+            // }
+            // var a = {
+            //     c: obj,
+            //     d: obj 
+            // }
+            // var s = copy(a)
+            // debugger
+            // bind new操作符实现
+            // Function.prototype._bind = function(con) {
+            //     let self = this
+            //     let args = [...arguments].splice(1)
+            //     let bouns = function () {
+            //         return self.apply(
+            //             this instanceof bouns ? this : con,
+            //             args.concat(...arguments)
+            //         )
+            //     }
+            //     if(this.prototype) {
+            //         bouns.prototype = this.prototype;
+            //     }
+            //     return bouns
+            // }
+
+            // function bar(a, b) {
+            //     this.a = a
+            //     this.b = b
+            // }
+
+            // bar.prototype.add = function () {
+            //     return this.a + this.b
+            // }
+            // var z = bar._bind(null, 1)
+            // var s = new z(2)
+            // s.add()
+            // // var s = new zz('aa')
+            // debugger
+            // bind 多参数实现
+            // Function.prototype._bind = function(context) {
+            //     let self = this
+            //     console.log(context)
+            //     let args = [...arguments].splice(1)
+            //     return function() {
+            //         args.push(...arguments)
+            //         return self.apply(context, args)
+            //     }
+            // }
+            // var foo = {
+            //     value: 1
+            // };
+
+            // function bar(name, age) {
+            //     return {
+            //         value: this.value,
+            //         name: name,
+            //         age: age
+            //     }
+            // };
+            // var zz = bar._bind(foo, 'hh')
+            // zz(10)
+            // debugger
+            // bind 函数实现
+            // Function.prototype._bind = function(context) {
+            //     let self = this
+            //     console.log(context)
+            //     return function () {
+            //         self.apply(context)
+            //     }
+            // }
+            // function add() {
+            //     console.log(this.value)
+            // }
+            // var obj = {
+            //     value: 11
+            // }
+            // add._bind(obj)()
+            // valueOf、toString测试
+            // var obj = {
+            //     toString: function() {
+            //         console.log('toString')
+            //         return this.x
+            //     },
+            //     valueOf: function() {
+            //         console.log('valueOf')
+            //         return this.x
+            //     },
+            //     x: 10
+            // }
+            // function add() {
+            //     function aa() {
+            //         aa.valueOf = function() {
+            //             console.log('valueOf')
+            //         }
+            //         aa.toString = function() {
+            //             console.log('toString')
+            //             return 1
+            //         }
+            //     }
+            //     return aa
+            // }
+            // debugger
+            // function add() {
+            //     let zz = [...arguments] || []
+            //     function _add() {
+            //         let aa = [...arguments]
+            //         zz.push(...aa)
+            //         return _add
+            //     }
+            //     _add.toString = function() {
+            //         return zz.reduce(function (v, i) {
+            //             return v + i
+            //         })
+            //     }
+            //     return _add
+            // }
+            // add(1, 2)
+            // debugger
+            // 正则密码
+            // var zz = /^([a-zA-Z0-9]){6,25}$/
+            // debugger
+            // 封装call、apply
+            // function _call() {
+            //     let arg = [].slice.call(arguments)
+            //     let aa = arg.shift()
+            //     return aa(...arg)
+            // }
+            // let obj = {
+            //     name: 'wang',
+            //     age: '111'
+            // }
+            // let obj1 = {
+            //     name: 'li',
+            //     age: '22',
+            //     getInfo: function() {
+            //         console.log(this.name + this.age)
+            //     }
+            // }
+            // obj1.getInfo.call(obj)
+            // function say({name='', age=''} = {}) {
+            //     console.log(name + age)
+            // }
+            // say.call(this, obj)
+            // _call(say, obj1)
+            // console.log(a)
+            // console.log(fn)
+            // function fn() {
+            //     console.log(a)
+            //     a = 2
+            //     console.log(a)
+            // }
+            // var a = 1
+            // fn()
+            // 实现广度深拷贝
+            // function bCopy(obj, tarArr = []) {
+            //     if (typeof obj !== 'object' || obj == null) {
+            //         return obj
+            //     } 
+            //     let newObj = Object.create({})
+            //     for (let i in obj) {
+            //         if (typeof obj[i] === 'object') {
+            //             let key = obj[i]
+            //             tarArr.push([key, i])
+            //         } else {
+            //             newObj[i] = obj[i]
+            //         }
+            //     }
+            //     while (tarArr.length) {
+            //         let arr = [].shift.call(tarArr)
+            //         newObj[arr[1]] = bCopy(arr[0])
+            //     }
+            //     return newObj
+            // }
+            // let arr = {name: '11', age: '22', obj: {name: 'wang', age: 'age'}}
+            // let zz = bCopy(arr)
+            // debugger
+            // 实现深度深copy
+            // function dCopy(obj) {
+            //     if (typeof obj !== 'object' || obj === null) {
+            //         return obj
+            //     }
+            //     let newObj = Object.prototype.toString.call(obj) === '[object Array]' ? [] : {}
+            //     for (let i in obj) {
+            //         newObj[i] = dCopy(obj[i])
+            //     }
+            //     return newObj
+            // }
+            // let arr = {name: '11', age: '22'}
+            // let zz = dCopy(arr)
+            // debugger
+            // 手写实现new操作符
+            // function _new() {
+            //     let obj = Object.create({})
+            //     let arg = [].slice.call(arguments)
+            //     let Fn = arg.shift()
+            //     let f = Fn.call(obj, ...arg)
+            //     obj.__proto__ = Fn.prototype
+            //     return Object.prototype.toString.call(f) === '[object Object]' ? f : obj
+            // }
+            // let fnc = function(name, age) {
+            //     this.name = name
+            //     this.age = age
+            //     return {
+            //         value: this.name + this.age
+            //     }
+            // }
+            // let te = _new(fnc, 'wang', '20')
+            // debugger
+            // var b = 10;
+            // (function b() {
+            //     b = 20
+            //     console.log(b)
+            // })()
+            // var a = 0
+            // var b = async () => {
+            //     a = a + await 10
+            //     console.log(2, a)
+            // }
+            // b()
+            // a++
+            // console.log(1, a)
+            // 单链表
+            // function LinkNode(element, next) {
+            //     this.element = element
+            //     this.next = next
+            // }
+            // function CreateLinkNode() {
+            //     this._head = null
+            //     this.size = 0
+            // }
+
+            // CreateLinkNode.prototype._getNodeByIndex = function(index) {
+            //     let obj = this._head
+            //     for (let i = 0; i < index; i++) {
+            //         obj = obj.next
+            //     }
+            //     return obj
+            // }
+
+            // CreateLinkNode.prototype.print = function() {
+            //     let obj = this._head
+            //     let arr = []
+            //     while (obj.next !== null) {
+            //         arr.push(obj.element)
+            //         obj = obj.next
+            //     }
+            //     let str = arr.join('->') || []
+            //     console.log(str)
+            //     return str
+            // }
+
+            // CreateLinkNode.prototype.append = function(element) {
+            //     if (this.size === 0) {
+            //         this._head = new LinkNode(element, null)
+            //         console.log(this._head)
+            //     } else {
+            //         let obj = this._getNodeByIndex(this.size - 1)
+            //         console.log(obj)
+            //         obj.next = new LinkNode(element, null)
+            //     }
+            //     this.size ++
+            // }
+
+            // const obj = new CreateLinkNode()
+            // obj.append(0)
+            // obj.append(1)
+            // obj.append(2)
+            // obj.print()
+            // 数组降维
+            // let arr = [1, [1, 2, [1, 2, 3]], 2, 3]
+            // function go(arr) {
+            //     let newArr = []
+            //     for(let i = 0; i < arr.length; i++) {
+            //         if (Array.isArray(arr[i])) {
+            //             newArr.push(...go(arr[i]))
+            //         } else {
+            //             newArr.push(arr[i])
+            //         }
+            //     }
+            //     return newArr
+            // }
+            // go(arr)
+            // var a = 10
+            // {
+            //     console.log(a)
+            //     var a = 20
+            //     console.log(a)
+            // }
+            // var a = 10;
+            // (function () {
+            //     console.log(a)
+            //     a = 5
+            //     console.log(window.a)
+            //     var a = 20;
+            //     console.log(a)
+            // })()
+            // var a = 100;
+            // (function() {
+            //     console.log(a)
+            //     console.log(this)
+            //     var a = 10
+            // })()
+
+            // var a = 123;
+            // (function(){
+            //     debugger
+            // console.log(a) // 123
+            // a = 456
+            // }())
+            // var b = 10;
+            // (function b() {
+            //     var b = 20
+            //     console.log(b)
+            //     console.log(this.b)
+            // })()
+            // debugger
+            // console.log(b)
+            // {
+            //     console.log(b)
+            //     function b() {
+            //         var b = 20
+            //         console.log(this.b)
+            //         console.log(b)
+            //     }
+            //     b()
+            // }
+            // function test() {
+            //     console.log(foo)
+            //     console.log(bar)
+
+            //     var foo = 'hello'
+
+            //     console.log(foo)
+
+            //     function foo () {
+            //         return 'hello'
+            //     }
+
+            //     function bar() {
+            //         return 'world'
+            //     }
+            // }
+            // test()
+            // debugger
+            // console.log(b)
+            // var b = 20
+            // function b() {
+            //     b = 30
+            //     console.log('function B', b)
+            // }
+            // console.log(b)
+            // console.log(foo)
+            // function foo() {
+            //     console.log('foo Function')
+            // }
+            // var foo = 20
+            // debugger
+            // (function b() {
+            //     b = 20
+            //     console.log(b)
+            // })()
+            // debugger
+            // let pare = {
+            //     name: 'wang',
+            //     getName: function() {
+            //         return this.name
+            //     },
+            //     setName: function (name) {
+            //         this.name = name
+            //     }
+            // }
+            // let chil = Object.create(pare)
+            // debugger
+            // let Foo = function() {}
+
+            // {
+            //     console.log(Foo())
+            //     const zz = new Foo()
+            //     class Foo {}
+            // }
+
+            // debugger
+
+            // 鸡生蛋、蛋生鸡
+            // function Person(name, age) {
+            //     this.name = name
+            //     this.age = age
+
+            //     function ss() {
+            //         console.log('pp')
+            //     }
+            // }
+
+            // Person.prototype.say = function() {
+            //     console.log('person')
+            // }
+            
+            // function Student(name, age, code) {
+            //     Person.call(this, name, age)
+            //     this.code = code
+            // }
+
+            // let p = new Person('li', 20)
+            // let s = new Student('wang', 30, 100)
+
+            // debugger
+            // 实现add(1)(2)(3) add(1, 2, 3) add(1,2)(3)
+            // function add() {
+            //     let _arg = [].slice.call(arguments)
+
+            //     function _add() {
+            //         _arg.push(...arguments)
+            //         return _add
+            //     }
+
+            //     _add.toString = function() {
+            //         return _arg.reduce((a, b) => {
+            //             return a + b
+            //         })
+            //     }
+
+            //     return _add
+            // }
+            // debugger
+            // class Person {
+            //     age = 10
+            //     constructor(name, sex) {
+            //         this.name = name
+            //         this.sex = sex
+            //     }
+
+            //     static getAge() {
+            //         console.log('hello')
+            //     }
+
+            //     getPerson() {
+            //         return ('名字：' + this.name + '性别' + this.sex + '年龄' + this.age )
+            //     }
+            // }
+
+            // Person.getAge()
+
+            // const per = new Person('wang', '男')
+
+            // class Student extends Person {
+            //     constructor(name, sex, code) {
+            //         super(name, sex)
+            //         this.code = code
+            //     }
+
+            //     getStudentCode() {
+            //         return (this.name + this.code)
+            //     }
+            // }
+
+            // const stu = new Student('li', '男', 100)
+            // debugger
+            // 归并排序
+            // function sortThis(arr) {
+            //     if (arr.length < 2) {
+            //         return arr
+            //     }
+            //     let num = Math.floor(arr.length / 2)
+            //     let left = []
+            //     let right = []
+            //     left = arr.slice(0, num)
+            //     right = arr.slice(num)
+            //     return merge(sortThis(left), sortThis(right))
+            // }
+
+            // function merge(left, right) {
+            //     let result = []
+            //     while (left.length && right.length) {
+            //         if (left[0] > right[0]) {
+            //             result.push(right.shift())
+            //         } else {
+            //             result.push(left.shift())
+            //         }
+            //     }
+            //     while (left.length) {
+            //         result.push(left.shift())
+            //     }
+            //     while (right.length) {
+            //         result.push(right.shift())
+            //     }
+            //     return result
+            // }
+
+            // let zz = sortThis([49, 38, 65, 97, 76, 13, 27, 49, 55, 04, 4, 4, 1, 2, 3, 1, 10])
+            // debugger
+
+            // 希尔排序
+            // function sortThis(arr) {
+            //     let num = Math.floor(arr.length / 2)
+            //     while (num >= 1) {
+            //         for (let i = num; i < arr.length; i++) {
+            //             for (let j = i; j >= 0; j -= num) {
+            //                 if (arr[j] > arr[i]) {
+            //                     ;[arr[j], arr[i]] = [arr[i], arr[j]]
+            //                 }
+            //             }
+            //         }
+            //         num = Math.floor(num / 2)
+            //     }
+            //     return arr
+            // }
+            // let zz = sortThis([49, 38, 65, 97, 76, 13, 27, 49, 55, 04, 4, 4, 1, 2, 3, 1, 10])
+            // debugger
+            // // 最长公共子序列
+            // function getStr(str1, str2) {
+            //     let arr = []
+            //     for (let i = 0; i < str1.length; i++) {
+            //         let z = str1[i]
+            //         if (str2.indexOf(z) > -1) {
+            //             arr.push(z)
+            //         }
+            //     }
+            //     return [arr.length, arr.join('')]
+            // }
+            // let zz = getStr('hello', 'loop')
+            // 最长公共子串
+            // function getStr(str1, str2) {
+            //     let maxStr = ''
+            //     for (let i = 0; i < str1.length; i++) {
+            //         for (let j = i; j < str1.length + 1; j++) {
+            //             let str = str1.substring(i, j)
+            //             if (str2.indexOf(str) > -1) {
+            //                 maxStr = str.length > maxStr.length ? str : maxStr
+            //             } else {
+            //                 break
+            //             }
+            //         }
+            //     }
+            //     return maxStr
+            // }
+            // let zz = getStr('helloeee', 'loopeee')
+            // 事件循环
+            // const list = [1, 2, 3]
+            // const square = num => {
+            // return new Promise((resolve, reject) => {
+            //         setTimeout(() => {
+            //         resolve(num * num)
+            //         }, 1000)
+            //     })
+            // }
+
+            // function test() {
+            //     // list.forEach(async x=> {
+            //     //         const res = await square(x)
+            //     //         console.log(res)
+            //     //     })
+            //     // }
+            //     for (let i = 0; i < list.length; i++) {
+            //         (async function (i) {
+            //             const res = await square(list[i])
+            //             setTimeout((i) => {
+            //                 console.log(res)
+            //             }, i * 1000)
+            //         })(i)
+            //     }
+            // }
+            // test()
+            // 求数组字符串的公共前缀
+            /*
+                let arr = ["flower","flow","flight"] 
+             */
+            // function getMax(arr) {
+            //     if (arr.length === 0) {
+            //         return
+            //     }
+            //     if (arr.length === 1) {
+            //         return arr[0]
+            //     }
+            //     let indexArr = arr[0].split('') 
+            //     let str = indexArr[0]
+            //     for (let j = 0; j < indexArr.length; j++) {
+            //         let flag = true
+            //         let i = 0
+            //         let newStr = str + indexArr[j]
+            //         while (i < arr.length) {
+            //             if (arr[i].indexOf(newStr) == -1) {
+            //                 flag = false
+            //                 break
+            //             }
+            //             i++
+            //         }
+            //         str = flag ? newStr : str
+            //     }
+            //     return str
+            // }
+            // let zz = getMax(["flower","flow","flight"]) // fl
+            // function go({x = 10, y = 0} = {}) {
+            //     return x + y
+            // } 
+            // console.log(go({x:1, y: 2}))
+            // setTimeout(function() {
+            //     console.log('timeout1');
+            // }, 2)
+
+            // new Promise(function(resolve) {
+            //     console.log('promise1');
+            //     for(var i = 0; i < 1000; i++) {
+            //         i == 99 && resolve();
+            //     }
+            //     console.log('promise2');
+            // }).then(function() {
+            //     console.log('then1');
+            // })
+
+            // console.log('global1');
+            // setTimeout(function() {
+            //     console.log('timeout12');
+            // }, 1)
+            // let go = function (name, age) {
+            //     this.name = name
+            //     this.age = age
+            //     this.getName = function() {
+            //         return this.name
+            //     }
+            // }
+            // go.prototype.getAge = function () {
+            //     return this.age
+            // }
+            // go.getText = function(x) {
+            //     console.log(x)
+            // }
+            // let z = new go('wang', '10')
+            // go.getText(1)
+            // console.log(z)
+        </script>
+    </body>
+</html>

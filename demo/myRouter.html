@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            html, body {
+                height: 100%;
+                width: 100%;
+                padding: 0px;
+                margin: 0px;
+            }
+            .div-con {
+                height: 100%;
+                width: 100%;
+                background-color: pink;
+            }
+
+            a {
+                color: yellow;
+                font-size: 16px;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="div-con">
+            <a href="#/red">红色</a>
+            <a href="#/green">绿色</a>
+            <a href="#/black">黑色</a>
+        </div>
+        <script>
+            function Router() {
+                this.router = {}
+                this.curHash = '/'
+            }
+            Router.prototype.init = function() {
+                let self = this
+                window.addEventListener('load', function() {
+                    self.refresh()
+                })
+                window.addEventListener('hashchange', function() {
+                    self.refresh()
+                })
+            }
+
+            Router.prototype.refresh = function() {
+                this.curHash = location.hash.split('/')[1] || '/'
+                this.router[this.curHash]()
+            }
+
+            Router.prototype.route = function(path, cb) {
+                console.log(path, cb)
+                this.router[path] = cb || function(){
+                    console.log('不存在回调函数')
+                }
+            }
+
+            window.rou = new Router()
+            rou.init()
+
+            let dom = document.getElementsByClassName('div-con')[0]
+            rou.route('', function() {
+                dom.style.background = 'pink'
+            })
+            
+            rou.route('red', function() {
+                dom.style.background = 'red'
+            })
+            rou.route('green', function() {
+                dom.style.background = 'green'
+            })
+            rou.route('black', function() {
+                dom.style.background = 'black'
+            })
+
+        </script>
+        <script>
+            
+        </script>
+    </body>
+</html>

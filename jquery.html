@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="main">go</div>
+        <div class="item">sss</div>
+        <input type="password" value="111"/>
+        <div class="item">
+            <p>yesterday</p>
+            <p>today</p>
+            <p>tomorrow</p>
+        </div>
+        <div class="item">
+            <p>yesty</p>
+            <p>to</p>
+            <p>trrow</p>
+        </div>
+        <select value='1'>
+            <option value='1'>1</option>
+            <option value="2" label='2'></option>
+        </select>
+        <script>
+            // let dom = document.getElementById('main')
+            // let x = document.createElement('SELECT')
+            // let arr = [{ name: 'first', code: 'first' }, { name: 'second', code: 'second' }]
+            // for (let i = 0; i < arr.length; i++) {
+            //     let str = document.createElement('OPTION')
+            //     str.label = arr[i].name
+            //     str.value = arr[i].code
+            //     if (i === 1) {
+            //         str.selected = true
+            //     }
+            //     x.appendChild(str)
+            // }
+            // dom.appendChild(x)
+            $(document).ready(function () {
+                debugger
+                $('select option[selected]').css({'color': 'red'})
+                // $('#main')
+            })
+        </script>
+    </body>
+</html>

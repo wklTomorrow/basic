@@ -1,0 +1,622 @@
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.arr = [1, 2]
+}
+
+function Student(name, age, wages){
+    this.wages = wages;
+    Person.call(this, name, age);
+    this.printWages = function() {
+        return this.wages
+    }
+}
+
+————————————————
+版权声明：本文为CSDN博主「无情的孔雀」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_42395080/java/article/details/82051637
+1.父函数原型上的属性或方法无法访问到
+2.每构造出一个子函数实例，父函数里的所有方法都被拷贝到了实例中，导致大量公用方法重复
+
+重绘与回流
+
+定义构造函数
+定义生成实例接口
+定义初始化函数
+提供扩展接口（插件机制）
+提供对外接口
+绑定原型
+
+event loop 时间循环
+
+混合 hybrid 前端与服务端相结合的
+NA 
+
+1、cec，mete，电力单元所有节点都可以计算
+
+typeof 变量名， []是一种特殊的对象类型，因此typeof [1, 2, 3, 4] 返回object 
+null 是只有一个值的特殊类型，表示一个空对象， typeof {} === 'object'
+
+function go({x = 10, y = 0} = {}) {
+                return x + y
+            } 
+            console.log(go({x:1, y: 2}))
+
+清楚浮动
+     .fff {
+                overflow: hidden;
+                width: 300px;
+                border: 1px solid lightgray;
+            }
+            .f-1 {
+                float: left;
+                background-color: red;
+                height: 200px;
+                width: 100px;
+            }
+            .f-2 {
+                background-color: yellow;
+                float: left;
+                height: 50px;
+                width: 100px;
+            }
+
+            新加一种元素，设置clear：both
+
+            用伪元素处理
+            .fff::after {
+                content: '';
+                height: 0;
+                width: 0;
+                display: block;
+                /* overflow: hidden; */
+                clear: both;
+            }
+
+关于valueOf、toString
+var obj = {
+    i: 10,
+    valueOf: function() {
+        
+    }
+}
+console.log()
+
+正则表达式
+.*? // 匹配任意字符1次
+out = re.findall(r'\d+(?=abc)',"1abc") ## 只抽取数字，并且该数字后面跟的字符是"abc"
+print(out)
+out1 = re.findall(r'\d+(?!abc)',"1abf") ## 只抽取数字，并且该数字后面跟的字符是"abc"
+print(out1)
+out3 = re.findall("A(?:\d{1,2}月)?D", "啊啊A22月DtttADgggg") ## 目的是抽取以A开头和D结尾的字符串
+print(out3)
+
+业务树，设备组下面标签功能，可单选多选
+
+能源系统功能迭代
+cim建模能原系统功能迭代
+实现能源系统子系统增删改，回显系统下的设备，及设备移动相关操作，显示系统下的图模及增改分享操作
+
+电力单元电价功能
+电费计算功能，包含三种单价图表，季节分时阶梯，季节分时，季节阶梯图表原生封装，电费单一制、两部制功能联调并上线
+
+目录电价功能，全国区域接口，三种图表复用，电价编辑季节、分时功能；新增、编辑电价功能
+
+
+cim建模功能迭代： 包含单点聚合功能，设备新增运维企业功能，业务树新增运维企业功能、测点查看详情、测点固有属性编辑、及相关bug
+
+业务树新增仪表树功能迭代
+
+仿真工具迭代，历史数据参数、websocket问题、新增续期、拉取设备组功能，并与大数据交接
+
+所有的对象与数组都不相等
+
+{} == {} // false
+{a: 1} == {a: 1} //false
+[] == [] // false
+[1] == [1] // false
+
+Function instanceof Function // true
+Function instanceof Object // true
+Object instanceof Function // true
+Object instanceof Object // true
+
+var myNonObj  = Object.create(null);
+myNonObj instanceof Object // false
+
+'hello'.substr(1, 2) // 'el'
+'hello'.substring(1, 2) // 'e'
+'hello'.slice(1, 2) // 'e'
+
+函数创建阶段 
+1、生成变量对象
+    1、创建arguments对象
+    2、函数声明变量提升
+    3、var定义的变量提升
+2、创建作用域
+
+3、确定this指向
+
+类数组的判断方式
+，存在且是对象，对象上有length属性，对象上的splice为函数类型
+
+箭头函数与普通函数的区别
+1、函数体内的 this 对象，就是定义时所在的对象，而不是使用时所在的对象。
+2、不可以使用 arguments 对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
+3、不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数。
+4、不可以使用 new 命令，因为：
+    没有自己的 this，无法调用 call，apply。
+    没有 prototype 属性 ，而 new 命令在执行时需要将构造函数的 prototype 赋值给新的对象的 
+ES6代码块转化为ES5代码块
+将ES6的代码转换为AST语法树，然后再将ES6 AST转为ES5 AST，再将AST转为代码
+
+对象的键名的转换
+1、对象的键名只能是字符串和 Symbol 类型。
+2、其他类型的键名会被转换成字符串类型。
+3、对象转字符串默认会调用 toString 方法。
+var obj = {} ,b = {key: 123}, c = {key: 456}
+obj[b] ='b'
+obj[c] = 'c'
+console.log(obj[b]) // c
+obj // {[object Object]: 'c'}
+
+var、let、const区别
+var 会在栈内存中预分配内存空间，当实际语句执行时，在存储对应的变量，如果是引用类型，则会在堆内存中开辟一个内存空间存储实际内容，
+栈内存会存储一个指向堆内存的空间
+let 不会再内存中预存储空间，再分配内存变量时，会做一个检查，如果已存在相同的变量名称会报错
+const 没有预存储，检查报错，存储的变量是不可修改的，但是对于引用类型来说你无法修改栈内存里分配的指针，
+但是你可以修改指针指向的对象里面的属性
+let const会形成暂时性死区，在定义的时候仍会被提前收集到变量对象之中，与var不同，他不会在这个时候进行赋值，
+没有完全性的赋值，即使变量提升了，我们也不能在赋值之前调用他，故而形成暂时行死区 
+
+1 + "1"
+加性操作符：如果只有一个操作数是字符串，则将另一个操作数转换为字符串，然后再将两个字符串拼接起来
+
+所以值为：“11”
+
+2 * "2"
+乘性操作符：如果有一个操作数不是数值，则在后台调用 Number()将其转换为数值
+
+[1, 2] + [2, 1]
+Javascript中所有对象基本都是先调用valueOf方法，如果不是数值，再调用toString方法。
+
+所以两个数组对象的toString方法相加，值为："1,22,1"
+
+"a" + + "b"
+后边的“+”将作为一元操作符，如果操作数是字符串，将调用Number方法将该操作数转为数值，如果操作数无法转为数值，则为NaN。
+
+所以值为："aNaN"
+
+触发BFC(块级格式化上线文)
+只要元素满足下面任一条件即可触发 BFC 特性：
+
+
+多行CSS文本显示...
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+overflow: hidden;
+
+
+var a = 0
+var b = async () => {
+    a = a + await 10 // 10 相当于promise.resolve(10).then
+    console.log(2, a)
+}
+b()
+a++
+console.log(1, a) // 1
+
+const promise = new Promise((resolve, reject) => {
+  console.log(1);
+  resolve(5);
+  console.log(2);
+}).then(val => {
+  console.log(val);
+});
+
+promise.then(() => {
+  console.log(3);
+});
+
+console.log(4);
+
+setTimeout(function() {
+  console.log(6);
+});
+
+ssl链接
+ssl握手过程
+    1. 客户端提交https请求
+
+    2. 服务器响应客户，并把证书公钥发给客户端
+
+    3. 客户端验证证书公钥的有效性
+
+    4. 有效后，会生成一个会话密钥
+
+    5. 用证书公钥加密这个会话密钥后，发送给服务器
+
+    6. 服务器收到公钥加密的会话密钥后，用私钥解密，回去会话密钥
+
+    7. 客户端与服务器双方利用这个会话密钥加密要传输的数据进行通信
+
+http1.0 http1.1 http2.0特性及区别
+    http1.0特性:
+        1、无状态：服务器不跟踪不记录请求过的状态
+        2、无连接：浏览器每次请求都需要建立tcp连接
+        无连接导致的性能缺陷有两种：
+            1. 无法复用连接
+            每次发送请求，都需要进行一次tcp连接（即3次握手4次挥手），使得网络的利用率非常低
+            2. 队头阻塞
+            http1.0规定在前一个请求响应到达之后下一个请求才能发送，如果前一个阻塞，后面的请求也给阻塞的
+
+    http1.1特性
+        1、长连接：新增Connection字段，可以设置keep-alive值保持连接不断开
+        2、管道化：基于上面长连接的基础，管道化可以不等第一个请求响应继续发送后面的请求，但响应的顺序还是按照请求的顺序返回
+            虽然管道化，可以一次发送多个请求，但是响应仍是顺序返回，仍然无法解决队头阻塞的问题
+        3、缓存处理：新增字段cache-control
+        4、断点传输
+    http2.0特性
+        1、二进制分帧
+        2、多路复用： 在共享TCP链接的基础上同时发送请求和响应
+        3、头部压缩
+        4、服务器推送：服务器可以额外的向客户端推送资源，而无需客户端明确的请求
+为什么 HTTP1.1 不能实现多路复用
+    多路复用归功于， HTTP/2 中的 帧（frame）和流（stream）。
+    帧代表着最小的数据单位，每个帧会标识出该帧属于哪个流，流也就是多个帧组成的数据流。就是在一个 TCP 连接中可以存在多条流。
+而Http 1.x 并没有这个标识，每次请求都会建立一次HTTP连接，3次握手4次挥手。
+
+手写实现new操作符
+function _new() {
+    let obj = Object.create({})
+    let arg = [].slice.call(arguments)
+    let Fn = arg.shift()
+    let f = Fn.call(obj, ...arg)
+    obj.__proto__ = Fn.prototype
+    return Object.prototype.toString.call(f) === '[object Object]' ? f : obj
+}
+let fnc = function(name, age) {
+    this.name = name
+    this.age = age
+    return {
+        value: this.name + this.age
+    }
+}
+let te = _new(fnc, 'wang', '20')
+
+闭包中的变量并不保存中栈内存中，而是保存在堆内存中，这也就解释了函数之后之后为什么闭包还能引用到函数内的变量。
+
+循环引用
+    var div = document.createElement('divv')
+    div.onclick = function() {
+        console.log('click')
+    }
+变量div有事件处理函数的引用，同时事件处理函数也有div的引用，因为div变量可在函数内被访问，所以循环引用就出现了
+
+垃圾回收算法:
+    1、引用计数，看一个对象是否有指向它的引用。如果没有其他对象指向它了，说明该对象已经不再需要了
+    2、标记清除，标记清除算法将“不再使用的对象”定义为“无法到达的对象”
+从内存上看null与undefined区别
+    1、 如果给一个全局变量null属性，相当于把指针，和值都置空，如果，对象赋给空值，则相当于分配了一个空内存，
+    null的属性会被垃圾回收器回收
+    2、undefined，只是相当于把值置空，但这个值依旧会存在
+
+const属性： 变量指向的那个内存地址所保存的数据不得改动至于对象，只是保证地址指针不能更改
+
+常见的JS内存泄漏
+    1、意外的全局变量，函数内部在window上定义全局变量，
+    2、被遗忘的计时器或回调函数
+    3、脱离 DOM 的引用 // 把dom按照JSON存储起来，此时一个在DOM树中，一个在字典中
+    4、闭包 
+    var theThing = null;
+    var replaceThing = function () {
+        var originalThing = theThing;
+        var unused = function () {
+            if (originalThing)
+            console.log("hi");
+        };
+            
+        theThing = {
+            longStr: new Array(1000000).join('*'),
+            someMethod: function () {
+            console.log(someMessage);
+            }
+        };
+    };
+
+    setInterval(replaceThing, 1000);
+    由于theThing与unused共享作用域，someMethod 与 unused 分享闭包作用域，
+    尽管 unused 从未使用，它引用的 originalThing 迫使它保留在内存中（防止被回收）
+    解决办法，是在最后把originalThing = null
+
+    NaN 与任何数相比较返回的都是false
+
+    Number(null) // 0
+    Number(undefinde) // NaN
+
+    关于object使用
+    Object() // {}
+    Object(123) // Number {123} Number(123) // 1234 // Object.prototype.toString.call(Object(123)) // [object Number]
+    Object('123') // String {'123'}
+    Object(true) // Boolean {true}
+
+    call 接收 undefined 会绑定到 window。
+    var obj = {
+        a: 1
+    }
+    obj.prototype.b = 2
+    'a' in obj
+    'b' in obj
+    in 操作符会检查属性是否存在对象及其 [[Prototype]] 原型链中。  
+    obj.hasOwnProperty('a') // true
+    obj.hasOwnProperty('b') // false
+    hasOwnProperty(...)只会检查属性是否存在对象中，不会向上检查其原型链。
+
+    如果只重写了toString，对象转换时会无视valueOf的存在来进行转换。但是，如果只重写了valueOf方法，在要转换为字符串的时候会优先考虑valueOf方法。
+    在不能调用toString的情况下，只能让valueOf上阵了。对于那个奇怪的字符串拼接问题，
+深copy时使用JSON.parse(JSON.stringify(obj))存在的问题
+    1、不能转换undefined、symbol、function
+    2、循环引用会报错
+    let obj = {
+    a: 1,
+        b: {
+            c: 2
+        }
+    }
+    undefined
+    obj.a = obj.b
+    {c: 2}
+    obj.b.c = obj.a
+    {c: {…}}
+    obj
+    {a: {…}, b: {…}}
+    let z = JSON.parse(JSON.stringify(obj))
+    VM3566:1 Uncaught TypeError: Converting circular structure to JSON
+        --> starting at object with constructor 'Object'
+        --- property 'c' closes the circle
+        at JSON.stringify (<anonymous>)
+        at <anonymous>:1:25
+    (anonymous) @ VM3566:1
+    3、new Date转换不准确
+    4、正则问题
+Symbol获取
+    1、Object.getOwnPropertySymbols
+    2、Reflect.ownKeys() // 返回所有的键值
+Symbol是基本数据类型，但是其具有constructor，是再原型上进行设置的，默认指向Symbol函数
+
+原型链与原型方法：
+    基本数据类型的原型constructor不可更改，null 、undefined不存在，引用数据类型的可更改
+    Symbol 作为构造函数来说并不完整，因为不支持语法 new Symbol()，但其原型上拥有 constructor 属性，即 Symbol.prototype.constructor。
+    引用类型 constructor 属性值是可以修改的，但是对于基本类型来说是只读的，当然 null 和 undefined 没有 constructor 属性。
+    __proto__ 是每个实例上都有的属性，prototype 是构造函数的属性，在实例上并不存在，所以这两个并不一样，但 p.__proto__ 和 Parent.prototype 指向同一个对象。
+    __proto__ 属性在 ES6 时被标准化，但因为性能问题并不推荐使用，推荐使用 Object.getPrototypeOf()。
+    每个对象拥有一个原型对象，通过 __proto__ 指针指向上一个原型 ，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 null，这就是原型链。
+
+vue与react区别： {
+    vuex与redux：{
+        共同点： 首先两者都是处理全局状态的工具库，大致实现思想都是：全局state保存状态---->dispatch(action) ------>reducer(vuex里的mutation)----> 生成newState; 整个状态为同步操作；
+        不同点： vuex里面多了一步commit操作，在action之后commit(mutation)之前处理异步，而redux里面则是通过中间件处理
+    }
+}
+
+打印1
+    function* sleepGenerator(time) {
+        yield new Promise(function(resolve,reject){
+            setTimeout(resolve,time);
+        })
+    }
+    sleepGenerator(1000).next().value.then(()=>{console.log(1)})
+
+vue 与 react区别
+    1、vue依赖getter、setter进行双向绑定，react通过diff算法，会造成大量的dom操作，优化
+    2、react遗弃mixins功能，改用高阶函数进行代替，react函数式编程，
+    3、组件间通信
+        1、vue通过props、events、provide/inject
+        2、react通过props、callBack、content进行传递
+    4、渲染过程不同
+        1、Vue可以更快地计算出Virtual DOM的差异，这是由于它在渲染过程中，会跟踪每一个组件的依赖关系，不需要重新渲染整个组件树。
+        2、React在应用的状态被改变时，全部子组件都会重新渲染。通过shouldComponentUpdate这个生命周期方法可以进行控制，但Vue将此视为默认的优化。
+    5、框架本质不同
+        1、react组件化框架，从后端发展过来
+        2、vue是mvvc框架，从mvc发展而来
+            1、mvc
+            2、mvvm
+            m(model)层负责与后台交互数据v(view)层表示DOM层的展示C(control)层，表示dom层表示的事件层
+    6、vuex与reduce
+        1、vuex $store被注册的VUe实例中通过commit，dispatch进行状态改变 在actions中处理async
+        2、react中我们每一个组件都需要显示的用connect把需要的props和dispatch连接起来
+
+跨域解决方案：
+    1、通过jsonp方式 // 只能实现一种get方式
+    2、跨域资源共享（cors）
+    3、webSocket协议跨域（允许跨域通讯）
+    4、document.domain + iframe js设置同源
+    5、document.hase + iframe 使用local.hash进行传值
+    6、postMessage 解决
+    7、node.js中间件代理
+http与tcp
+    TCP对应于传输层，HTTP对应于应用层，从本质上来说，二者没有可比性。
+    Http协议是建立在TCP协议基础之上的，
+    当浏览器需要从服务器获取网页数据的时候，会发出一次Http请求。
+    Http会通过TCP建立起一个到服务器的连接通道，当本次请求需要的数据完毕后，Http会立即将TCP连接断开，这个过程是很短的。所以Http连接是一种短连接，是一种无状态的连接。
+
+强缓存与协商缓存
+    1、强缓存
+        1、cache-conctrol: max-age=xxx,public,immutable
+            max-age: 表示缓存的事件
+            public：表示被浏览器和代理服务器进行缓存
+            immutable：是否强制刷新
+    2、协商缓存
+        etag：‘按时2111’
+        last-modified： ‘’
+        请求时候自动带上response。header上与浏览器进行交互
+
+webpack热更新（hor）
+    热更新代码后，webpack会重新进行代码打包，并将改动的模块发送到浏览器端，浏览器端用新的模块替换调老的模块，实现局部刷新，而不是整体刷新
+
+http与https
+
+    ssl链接、CA证书
+
+js原生方法
+    Array:
+        let arr1 = [1, 2, 3, {name: 'wang'}]
+        let arr2 = [10]
+        concat // 返回两个数组链接后的新数组
+        copyWithin(tar, start, end) // tar 复制位置，
+        fill（tar // 用来填充的开始位置, start, end）、copyWithin
+        every（function(curVal, index, allArr){}, thisValue）、filter、findIndex、find、forEach、map、some
+        entries、 // 返回数组的可迭代对象         
+        Array.from(obj, fucntion(){}, this.value)
+        includes(tar, index) // 查看数组中是否出现的数值 、indexOf(tar, index)、lastIndexOf(tar, index)
+        Array.isArray() // 判断是否是数组
+        join() // 把所有数组以参数进行拼接     
+        arr.pop() // 删除数组的最后一个元素并返回这个元素 、push() // 向数组中添加个元素，并返回添加后的数组的长度、arr.shift() // 删除数组的第一个元素并返回 unshift() // 向数组头部添加元素，并返回数组的长度
+        let arr = [1, 2, 3]
+        arr.unshift(...[4, 5]) // arr: [4, 5, 1, 2, 3]
+        reduce(function(total // 每次进行计算时上一次计算的值若有this,第一次total=this,没有total第一次为数组的第一个元素, curVal, curIndex, allArr),thisValue)、reduceRight()
+        reverse() // 反转数组位置
+        slice(start, end) //截取数组的一部分元素，并返回该数组，不改变原数组的值，截取值为开始的下标到结束下标前一个
+        sort(function(){}) // 负数不变 0 、正数交换
+        splice(tar, num, item) // num表示删除多少个元素，若不填，则删除从tar开始到结束的所有元素.
+    String
+        charAt(index) // 返回下标处字符 charCodeAt(index)、 fromCharCode(code) //转成字符、
+        indexOf(str)、includes(str)、lastIndexOf(str)、match(/abc/g) 返回符合的正则表达式match(new RegExp())、search（） //找到一个、str.repeat(count) //重复的次数 
+        slice(start, end) 同数组的 startsWith(str, index) // 判断下标处的开始字母是否是目标字符 subString(from, to) // subStr(form, len)// 截取字符串的长度
+        split() // 切割字符串返回数组
+        concat(str1, str2) // 链接多个字符串
+
+js实现继承的方式
+    1、原型链继承
+        实现：当一个原型对象等于另一个的实例
+            function A() {
+                this.aValue = true
+            }
+            A.prototype.getValue = function() {
+                return this.value
+            }
+            function B() {
+                this.bValue = true
+            }
+            B.prototype = new A()
+            b.prototype.getValue = function() {
+                return this.bValue
+            }
+        问题：
+            1、包含引用类型的原型属性被所有实例所共享，改变一个会影响其他的实例
+            2、在构造子类型的实例时，不能向原型的构造函数传递参数
+    2、借助构造函数实现继承
+        实现：就是在子类型的构造函数中调用父亲的构造函数，通过call、apply来更改this的指向
+            function A(name) {
+                this.name = name
+            }
+            A.prototype.getName = function() {
+                return this.name
+            }
+            function B() {
+                A.call(this, 'wang')
+                this.age = '10'
+            }
+        优势：可以向父构造函数中传参数
+        问题：
+            1、无法复用函数
+            2、父亲构造函数在原型上定义的行为，在子类上访问不到
+    3、组合继承
+        实现：原型链和构造函数结合，原型链继承原型方法，构造函数继承属性
+            function A(name) {
+                this.name = name
+            }
+            A.prototype.getName = function() {
+                return this.name
+            }
+            function B() {
+                A.call(this, 'wang')
+            }
+            B.prototype = new A()
+            B.prototype.constructor = B
+        问题：在调用的时候，总会调用两次构造函数
+    4、原型式继承
+        实现：
+            function obj(o) {
+                function fn(){}
+                fn.prototype = o
+                return new fn()
+            } 
+        这种类型的继承，实现了引用类型的共享
+    5、寄生式继承
+        实现： 
+            function A(a) {
+                var clone = Object.create(a)
+                clone.sayHi = function() {
+                    console.log('hi')
+                }
+                return clone
+            }
+            var zz = new A(person)
+            zz.sayHi()
+    6、寄生组合式继承
+        实现：解决组合式继承调用两次构造函数的继承
+            function inheritPrototype(subType, superType){
+                var protoType = Object.create(superType.prototype);    //创建对象
+                protoType.constructor = subType;                    //增强对象
+                subType.prototype = protoType;                        //指定对象
+            }
+            function SuperType(name){
+                this.name = name;
+                this.colors = ["red", "blue", "green"];
+            }
+            SuperType.prototype.sayName = function(){
+                alert(this.name);
+            }
+
+            function SubType(name, age){
+                SuperType.call(this, name);　　
+                
+                this.age = age;
+            }
+            inheritPrototype(SubType, SuperType)
+            SubType.prototype.sayAge = function(){
+                alert(this.age);
+            }
+
+            var instance = new SubType("Bob", 18);
+            instance.sayName();
+            instance.sayAge();
+    
+js实现深拷贝、浅拷贝（深度优先， 广度优先）。
+    浅拷贝：
+        Object.assign()
+        let arr = [1, 2, {name: 'wang'}]
+        let a = arr.concat([]) // arr[2].name改变
+        let a = arr.slice(0, arr.length) // arr[2].name改变
+    深拷贝：
+        JSON.stringify()、JSON.parse()
+        lodash的深copy库
+
+
+
+AMD、
+    https://blog.csdn.net/tangxiujiang/article/details/81104174
+    1、AMD--异步模块定义
+        AMD是requirJS下的是其对模块化的规范推广可以异步加载模块
+    2、CMD--同步模块定义SeaJS推广中对模块定义的规范化的产出（淘宝团队）
+    3、commonJS--通过module.exports进行定义使用于node环境
+        在每个node模块中，node为其加入var export = module.export 
+        所以我们可以想export对象上加入方法，但不能重新指向export = {}，
+        module.export:
+        export:
+    4、ES6--import export
+vue的created与mounted区别
+    created: 
+        浏览器渲染机制:
+            生成对应的DOM树，生成CSS规则树，根据js逻辑执行文件，构建渲染树rander tree 树， 渲染树布局layout， 渲染树绘制
+        此时页面的DOM树，CSS规则，JS文件都已执行，但是还尚未构建rander tree 可以拿到数据和方法，但是拿不到页面元素
+    mounted： 
+        这个阶段能拿到数据和页面元素，rander已经完成了页面的渲染，
+gulp与Grunt
+    1、gulp 是基于Nodejs的自动任务运行器，
+    能自动化的完成javascript/coffee/sass/less/html/image/css 等文件的的测试、检查、合并、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤。
+
+
+

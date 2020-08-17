@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>go</div>
+        <script>
+            let obj = {
+                price_season_operate, // 区域季节定义
+                price_season_time_operate, // 区域季节分时定义
+                price_version_delete, // 电价版本删除
+                price_version_add, // 电价版本新增
+                price_electric_create, // 新增电价
+                price_electric_edit, // 编辑电价
+                price_electric_delete, // 删除电价
+            }
+            let obj = {}
+            Object.defineProperty(obj, 'age', {
+                get () {
+                    return this.value
+                },
+                set (val) {
+                    this.value = val
+                }
+            })
+            debugger
+            let bbb = 111
+            let ccc = 222
+            let str = 'abc{{bbb}}defg{{ccc}}'
+            let z = str.match(/(\{\{\w+\}\}*)/g)
+
+            str = str.replace(/(\{\{\w+\}\}*)/g, function() {
+                console.log(arguments)
+            }
+            )
+            let x = /{{.+}}/i.test(str)
+            debugger
+            // promise用法
+            let func = function(count) {
+                return new Promise(function(resolve, reject) {
+                    let x = count
+                    setTimeout(() => {
+                        x = count + 10
+                    }, count);
+                    resolve(x)
+                })
+            }
+            let p1 = func(1)
+            let p2 = func(2)
+            let p3 = func(3)
+            Promise.all([p1, p2, p3]).then(r => {
+                debugger
+            })
+        </script>
+    </body>
+</html>

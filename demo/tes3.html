@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            #graph {
+                height: 400px;
+                width: 600px;
+            }
+            canvas{border:0px;outline:none;}
+            #addContent {
+                height: 100px;
+                width: 100px;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: 1000;
+                display: none;
+            }
+            .po {
+                position: relative;
+            }
+            /* .trig {
+                border-bottom: 10px solid lightgray;
+                border-left: 10px solid transparent;
+                width: 0px;
+                height: 0px;
+                border-right: 10px solid transparent;
+            } */
+            .content {
+                height: 100%;
+                border: 1px solid lightgray;
+                width: 100%;
+                position: relative;
+                background-color: #ffffff;
+            }
+            .content::before {
+                position: absolute;
+                top: -10px;
+                left: 30px;
+                content: '';
+                border-bottom: 10px solid lightgray;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+            }
+        </style>
+        <script src="go.js" type="text/javascript">
+        </script>
+        <script src="shape.js" type="text/javascript">
+        </script>
+    
+    </head>
+    <body>
+        <div class="po">
+            <div id="graph">
+            </div>
+            <div id="toolTipDIV">hello</div>
+            <div id="addContent">
+                <div class="content">
+                    hello world
+                </div>
+            </div>
+        </div>
+        <script>
+            var diagram = new go.Diagram("graph");
+            var $ = go.GraphObject.make;  // for conciseness
+
+            function showToolTip(obj, diagram, tool) {
+                var toolTipDIV = document.getElementById('toolTipDIV');
+                var pt = diagram.lastInput.viewPoint;
+                toolTipDIV.style.left = (pt.x + 10) + "px";
+                toolTipDIV.style.top = (pt.y + 10) + "px";
+                document.getElementById('toolTipParagraph').textContent = "Tooltip for: " + obj.data.key;
+                toolTipDIV.style.display = "block";
+            }
+
+            function hideToolTip(diagram, tool) {
+            var toolTipDIV = document.getElementById('toolTipDIV');
+            toolTipDIV.style.display = "none";
+            }
+
+            var myToolTip = $(go.HTMLInfo, {
+                show: showToolTip,
+                hide: hideToolTip
+                /*
+                since hideToolTip is very simple,
+                we could have set mainElement instead of setting hide:
+                mainElement: document.getElementById('toolTipDIV')
+                */
+            });
+            function showToolTip(obj, diagram, tool) {
+                debugger
+            }
+            function hideToolTip() {
+                debugger
+            }
+            diagram.nodeTemplate =
+                $(go.Node, "Auto",
+                {
+                    toolTip: myToolTip
+                },
+                $(go.Shape, "RoundedRectangle", { strokeWidth: 0},
+                    new go.Binding("fill", "color")),
+                $(go.TextBlock,
+                    { margin: 8 },
+                    new go.Binding("text", "key"), {
+                        click: function(e, obj) {
+                            getThis(e, obj)
+                        }
+                    })
+                );
+            function getThis(e, obj) {
+                debugger
+            }
+            diagram.model = new go.GraphLinksModel(
+            [
+                { key: "Alpha", color: "lightblue" },
+                { key: "Beta", color: "orange" },
+                { key: "Gamma", color: "lightgreen" },
+                { key: "Delta", color: "pink" }
+            ]);
+        </script>
+    </body>
+</html>

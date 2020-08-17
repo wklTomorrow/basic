@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>
+            <button onclick="clickMe()">点我</button>
+            <button onclick="clickMeOne()">点1我</button>
+            <input id="test">
+            <div id="val"></div>
+        </div>
+        <script>
+            // leetcode 2
+            // 342 + 564 = 708
+            function createNode() {
+                this.next = null
+                this.size = 0
+            }
+            function LinkNode(val) {
+                this.val = val
+                this.next = null
+            }
+            createNode.prototype.getSize = function(n) {
+                let v = this.next
+                for (let i = 0; i <= this.size; i++) {
+                    if (n == i) {
+                        return v
+                    }
+                    v = v.next
+                }
+            }
+            createNode.prototype.add = function(val) {
+                if (this.size == 0 ) {
+                    this.next = new LinkNode(val)
+                } else {
+                    let v = this.getSize(this.size - 1)
+                    v.next = new LinkNode(val)
+                }
+                this.size ++
+                return this
+            }
+
+            var ss = new createNode()
+            let s1 = ss.add(3).add(4).add(2)
+            var a = new createNode()
+            let s2 = a.add(5).add(6).add(4)
+
+            console.log(s1.next, s2.next)
+
+            const fn = (a1, a2) => {
+                let sum
+                let s1 = 0
+                let v = 0
+                var zz = new createNode()
+                while(a1 || a2) {
+                    a1.val = a1.val ? a1.val : 0
+                    a2.val = a2.val ? a2.val : 0
+                    sum = a1.val + a2.val + s1
+                    if (sum >= 10) {
+                        sum = sum % 10
+                        s1 = 1
+                    } else {
+                        s1 = 0
+                    }
+                    zz.add(sum)
+                    a1 = a1.next ? a1.next : null
+                    a2 = a2.next ? a2.next : null
+                }
+                return zz
+            }
+            console.log(fn(s1.next, s2.next))
+            // 739
+            // let arr = [73, 74, 75, 71, 69, 72, 76, 73]
+            // // [1, 1, 4, 2, 1, 1, 0, 0]
+            // let newArr = []
+            // for (let i = 0; i < arr.length; i++) {
+            //     let z = arr[i]
+            //     let con = 0
+            //     if (i === arr.length - 1) {
+            //         newArr.push(con)
+            //         break
+            //     }
+            //     for (let j = i + 1; j < arr.length; j++) {
+            //         if (arr[j] > z) {
+            //             con = j - i
+            //             break
+            //         }
+            //     }
+            //     newArr.push(con)
+            // }
+            // console.log(newArr)
+            // // 746
+            // const len = [10, 15, 20]
+            // const len2 = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+            // function getMin(arr) {
+            //     if (arr.length === 1) {
+            //         return arr[0]
+            //     } 
+            //     if (arr.length === 2) {
+            //         return Math.min(arr[1], arr[0])
+            //     } 
+            //     let step = [0, 0]
+            //     for (let i = 2; i <= arr.length; i++) {
+            //         step[i] = Math.min(step[i - 1] + arr[i - 1], step[i - 2] + arr[i - 2])
+            //     }
+            //     return step[arr.length]
+            // }
+            // console.log(getMin(len), getMin(len2))
+            // console.log(getMin(len), getMin(len2))
+            // let F = function(n) {
+            //     let arr = [n, n]
+            //     function getThis(a, cur) {
+            //         let curArr = [...a]
+            //         let left = []
+            //         let right = []
+            //         if (curArr[0] > curArr[1]) {
+            //             return []
+            //         } else if (curArr[1] === 0) {
+            //             return [')']
+            //         } else {
+            //             if (curArr[0] === 0) {
+            //                 curArr[1]--
+            //                 right = getThis(curArr, ')')
+            //                 for (let i = 0; i < right.length; i++) {
+            //                     right[i] = cur + right[i]
+            //                 }
+            //                 return right
+            //             } else {
+            //                 curArr[0]--
+            //                 left = getThis(curArr, '(')
+            //                 for (let i = 0; i < left.length; i++) {
+            //                     left[i] = cur + left[i]
+            //                 }
+            //                 curArr[0]++
+            //                 curArr[1]--
+            //                 right = getThis(curArr, ')')
+            //                 for (let i = 0; i < right.length; i++) {
+            //                     right[i] = cur + right[i]
+            //                 }
+            //                 return left.concat(right)
+            //             }
+            //         }
+            //     }
+            //     return getThis(arr, '')
+            // }
+            // console.log(F(3))
+            // var list = []
+            // let F = function (n) {
+            //     if (list[n]) {
+            //         return list[n]
+            //     }
+            //     let res = []
+            //     if (n == 0 || n == 1) {
+            //         list[0] = ['']
+            //         list[1] = ['()']
+            //         return list[n]
+            //     }
+            //     for (let i = 0; i < n; i++) {
+            //         let cur = F(i)
+            //         let remain = F(n - i - 1)
+            //         console.log(cur, remain)
+            //         for (let z = 0; z < cur.length; z++) {
+            //             let str = '(' + cur[z] + ')'
+            //             for (let j = 0; j < remain.length; j++) {
+            //                 str = str + remain[j]
+            //                 res.push(str)
+            //             }
+            //         }
+            //     }
+            //     list[n] = res
+            //     return list[n]
+            // }
+            // console.log(F(3))
+            // var generateParenthesis = function (n) {
+            //     let res = [];
+            //     //  cur :当前字符  left：当前字符左括号 right:当前字符右括号
+            //     const help = (cur, left, right) => {
+            //         if (cur.length === 2 * n) {
+            //             res.push(cur);
+            //             return;
+            //         }
+            //         if (left < n) {
+            //             help(cur + "(", left + 1, right)
+            //         }
+            //         if (right < left) {
+            //             help(cur + ")", left, right + 1);
+            //         }
+            //     };
+            //     help("", 0, 0);
+            //     return res;
+            // };
+            // console.log(generateParenthesis(3))
+            // let obj = {
+            //     value: ''
+            // }
+            // let dom1 = document.getElementById('test')
+            // let dom2 = document.getElementById('val')
+            // Object.defineProperty(obj, 'value', {
+            //     get: function() {
+            //         console.log('getting')
+            //     },
+            //     set: function() {
+            //         dom2.innerText = dom1.value 
+            //     }
+            // })
+            // obj = new Proxy({}, {
+            //     get: function(target, name, resiver) {
+            //         return Reflect.get(target, name, resiver)
+            //     },
+            //     set: function(target, name, value, resiver) {
+            //         return Reflect.set(target, name, value, resiver)
+            //     }
+            // })
+            // dom1.oninput = function() {
+            //     obj.value = dom1.value
+            // }
+            // function _Promise(executor) {
+            //     let self = this;
+            //     self.value = undefined;
+            //     self.reason = undefined;
+            //     self.status = 'pending';
+            //     self.onResolvedCallbacks = [];
+            //     self.onRejectedCallbacks = [];
+            //     function resolve(value) {
+            //         if (self.status === 'pending') {
+            //             self.value = value;
+            //             self.status = 'resolved';
+            //             self.onResolvedCallbacks.forEach(fn => fn());
+            //         }
+            //     }
+            //     function reject(reason) {
+            //         if (self.status === 'pending') {
+            //             self.reason = reason;
+            //             self.status = 'rejected';
+            //             self.onRejectedCallbacks.forEach(fn => fn());
+            //         }
+            //     }
+            //     try {
+            //         executor(resolve, reject);
+            //     } catch (e) {
+            //         reject(e);
+            //     }
+            // }
+            // let x = new _Promise((resolve, reject) => {
+            //     resolve(1)
+            // })
+            // debugger
+            // function clickMe() {
+            //     console.log('click')
+            //     window.addEventListener('mousemove', a)
+            // }
+            // function clickMeOne() {
+            //     window.removeEventListener('mousemove', a)
+            // }
+            // function a() {
+            //     console.log(1)
+            // }
+            // 手写双向数据绑定es5版
+            // function ajax(options) {
+            //     options = options || {}
+            //     let xmlhttp = ''
+            //     if (window.XMLHttpRequest) {
+            //         xmlhttp = new XMLHttpRequest()
+            //     } else {
+            //         xmlhttp = new ActiveXObject('Microsoft.XMLHTTP')
+            //     }
+            //     xmlhttp.sent(options.type, options.url)
+            //     xmlhttp.onreadystatechange = function() {
+            //         if (xmlhttp.readystate === 4 && xmlhttp.status === 200) {
+            //             options.success(xmlhttp.responseText)
+            //         } else {
+            //             options.error(xmlhttp.responseText)
+            //         }
+            //     }
+            // }
+            // ajax({
+            //     type: 'get',
+            //     data: {
+
+            //     },
+            //     url: '',
+            //     success: function(e) {
+            //         console.log(e)
+            //     }
+            // })
+            // function tt(obj) {
+            //     obj.fn(obj.value)
+            // }
+            // tt({
+            //     value: 1,
+            //     fn: function(e) {
+            //         console.log(e)
+            //     }
+            // })
+            // 手写promise
+            function Pro(fn) {
+                
+            }
+        </script>
+    </body>
+</html>

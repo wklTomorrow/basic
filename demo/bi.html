@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div>go</div>
+        <script>
+            function add() {
+                let arg = [].slice.call(arguments) || []
+                function addOne() {
+                    let func = function() {
+                        arg.push(...arguments)
+                        return func
+                    }
+                
+                    func.num = function (){
+                        return arg.reduce((x, y)=> {
+                            return x + y
+                        })
+                    }
+                    return func
+                }
+                return addOne(...arg)
+            }
+            let z = add(1)(2).num()
+            debugger
+            // 函数柯里化
+            // 简单实现，参数只能从右到左传递
+            function createCurry(func, args) {
+
+                var arity = func.length;
+                var args = args || [];
+
+                return function() {
+                    var _args = [].slice.call(arguments);
+                    [].push.apply(_args, args);
+
+                    // 如果参数个数小于最初的func.length，则递归调用，继续收集参数
+                    if (_args.length < arity) {
+                        return createCurry.call(this, func, _args);
+                    }
+
+                    // 参数收集完毕，则执行func
+                    return func.apply(this, _args);
+                }
+            }
+            let arr = new createCurry()
+            // function _map(func, array) {
+            //     return array.map(func);
+            // }
+
+            // var _getNewArray = createCurry(_map);
+
+            // var getNewArray = _getNewArray(function(item) {
+            //     return item * 100 + '%'
+            // })
+
+            // function createCurry(_func, arr) {
+            //     let funArr = _func.length
+            //     let arrs = arr || []
+            //     return function () {
+            //         let aa = [].splice.call(arguments)
+            //         let args = [].push.apply(aa, arrs)
+            //         return _func.apply(this, _arrs)
+            //     }
+            // } 
+            // getNewArray([1, 2, 3])
+
+            // let fn
+            // function s() {
+            //     let a = 10
+            //     function aa() {
+            //         console.log(a)
+            //     }
+            //     fn = aa
+            // }
+            // function tt() {
+            //     fn()
+            // }
+            // s()
+            // tt()
+        </script>
+    </body>
+</html>

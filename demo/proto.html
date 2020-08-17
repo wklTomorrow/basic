@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            #test {
+                height: 200px;
+                width: 200px;
+                border: 1px solid;
+            }
+        </style>
+        <script src="./api.js"></script>
+    </head>
+    <body>
+        <div id="test">1111</div>
+        <script>
+            $('#test').html()
+            $.sayName()
+            // 构造函数里面的内容随意访问
+            function go() {
+                this.sayHello = function() {
+                    console.log('hello')
+                }
+            }
+            console.log(new go())
+            function * Add(x) {
+                yield x + 10
+                yield x + 20
+                return x + 30
+            }
+            let test = Add(100)
+            console.log(test.next())
+            console.log(test.next())
+            console.log(test.next())
+        </script>
+    </body>
+</html>

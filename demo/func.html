@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+    </body>
+    <script>
+        // 柯里化函数
+        // add(1)(2)()
+        // 关于valueOf、toString
+        // let obj = {
+        //     i: 10,
+        //     valueOf: function() {
+        //         console.log('执行了valueOf')
+        //         return this.i ++
+        //     },
+        //     toString: function() {
+        //         console.log('执行了toString')
+        //         return this.valueOf() ++
+        //     }
+        // }
+        // console.log(obj) // 12 执行了valueOf toString
+        // console.log(+obj) // 执行了valueOf
+        // console.log(String(obj))    //50 执行了toString() 执行了valueOf()
+        // console.log(Number(obj))	//30 执行了valueOf()
+        // function add() {
+        //     let _arg = [].slice.call(arguments)
+
+        //     let _adder = function() {
+        //         _arg.push(...arguments)
+        //         return _adder
+        //     }
+        //     _adder.toString = function() {
+        //         return _arg.reduce((x, y) => {
+        //             return x + y
+        //         })
+        //     }
+        //     return _adder
+        // }
+        function createCurry(fn, arg) {
+            let len = fn.length
+            let a = arg || []
+            return function () {
+                let zz = [].slice.call(arguments)
+                a.push(zz)
+                if (zz.length < len) {
+                    return createCurry.call(this, fn, a)
+                }
+                return fn.apply(this, a)
+            }
+        }
+        function _filter(fn, arr) {
+            return arr.filter(fn)
+        }
+        let _fn = createCurry(_filter)
+        let zz = _fn(
+            function(i) {
+                return i > 10
+            }
+        )
+        debugger
+        // function Curry(fn, arg) {
+        //     let len = fn.length
+        //     let pa = arg || []
+        //     return function() {
+        //         // let _arg = [].slice.call(arguments)
+        //         pa.push(...arguments)
+        //         if (pa.length <  )
+        //         return fn(...pa)
+        //     }
+        // }
+        // function test(...arr) {
+        //     console.log(arr)
+        //     if (arr.length) {
+        //         return arr.reduce((x, y) => {
+        //             return x + y
+        //         })
+        //     }
+        // }
+        // let f = Curry(test)
+        // console.log(f(1, 2, 3)(1))
+        // console.log(test([1, 2, 3]))
+    </script>
+</html>

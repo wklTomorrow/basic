@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>Hello, World</title>
+ <style type="text/css">
+  html{height:100%}
+  body{height:100%;margin:0px;padding:0px}
+  #container{
+    /*height:100%*/
+  }
+  .box{
+   width:600px;
+   height:400px;
+   margin:300px;
+  }
+ </style>
+ <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FUqgWkRSuxf6K17FtAszveEptd4YURP3">
+     //v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"
+ </script>
+</head>
+ 
+<body>
+<div id="container" class="box"></div>
+<script type="text/javascript">
+    var map = new BMap.Map("container");
+    // 创建地图实例
+    var point = new BMap.Point(113.742196,34.752043);
+    // 创建点坐标
+    map.centerAndZoom(point,20);
+    // 初始化地图，设置中心点坐标和地图级别
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    // map.setMapStyle({style:'grayscale'}); //黑夜地图效果
+ 
+    var marker = new BMap.Marker(point);        // 创建标注
+    map.addOverlay(marker);
+ 
+    //定义位置坐标
+    // marker.enableDragging();
+    // marker.addEventListener("dragend", function(e){
+    //     alert("当前位置：" + e.point.lng + ", " + e.point.lat);
+    // })
+ 
+    //定义信息窗口
+    var opt = {
+        width : 250,     // 信息窗口宽度
+        height: 100,     // 信息窗口高度
+        title : "河南晶泰光电科技有限公司" , // 信息窗口标题
+        color:"red"
+    };
+    var infoWindow = new BMap.InfoWindow("安装LED显示屏,LED显示屏安装,LED显示屏报价,LED显示屏维修", opt);  // 创建信息窗口对象
+ 
+    //监听小红点点击事件 点击后信息窗口显示
+    marker.addEventListener("click", function(){
+        map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
+    });
+ 
+    //定义一个地图放大缩小控件
+    var opts = {type:BMAP_NAVIGATION_CONTROL_LARGE,offset: new BMap.Size(20,20)}
+    map.addControl(new BMap.NavigationControl(opts));
+</script>
+</body>
+</html>

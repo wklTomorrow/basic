@@ -8,24 +8,42 @@
     go
 </div>
     <script>
-        let f1 = function () {
-            console.log(1)
+        let Person = function(name, age) {
+            this.name = name
+            this.age = age
         }
-        let f2 = function () {
-            // console.log(2)
-            return new Promise(function (resolve, reject) {
-                setTimeout(() => {
-                    console.log(2)
-                    resolve(1)
-                }, 5000)
-            })
+        Person.prototype.getName = function() {
+            return this.name
         }
-        let f3 = async function () {
-            let x = await f2()
-            f1()
-            console.log(3)
+        let Student = function(name, age, grade) {
+            Person.call(this, name, age)
+            this.grade = grade
         }
-        f3()
+        Student.prototype = Object.create(Person.prototype, {
+            // constructor: {
+            //     Student
+            // }
+        })
+        let xx = new Student(1,2,3)
+        debugger
+        // let f1 = function () {
+        //     console.log(1)
+        // }
+        // let f2 = function () {
+        //     // console.log(2)
+        //     return new Promise(function (resolve, reject) {
+        //         setTimeout(() => {
+        //             console.log(2)
+        //             resolve(1)
+        //         }, 5000)
+        //     })
+        // }
+        // let f3 = async function () {
+        //     let x = await f2()
+        //     f1()
+        //     console.log(3)
+        // }
+        // f3()
     </script>
 </body>
 </html>

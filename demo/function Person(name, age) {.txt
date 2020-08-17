@@ -1,0 +1,161 @@
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.arr = [1, 2]
+}
+
+function Student(name, age, wages){
+    this.wages = wages;
+    Person.call(this, name, age);
+    this.printWages = function() {
+        return this.wages
+    }
+}
+
+————————————————
+版权声明：本文为CSDN博主「无情的孔雀」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_42395080/java/article/details/82051637
+1.父函数原型上的属性或方法无法访问到
+2.每构造出一个子函数实例，父函数里的所有方法都被拷贝到了实例中，导致大量公用方法重复
+
+重绘与回流
+
+定义构造函数
+定义生成实例接口
+定义初始化函数
+提供扩展接口（插件机制）
+提供对外接口
+绑定原型
+
+event loop 时间循环
+
+混合 hybrid 前端与服务端相结合的
+NA 
+
+1、cec，mete，电力单元所有节点都可以计算
+
+typeof 变量名， []是一种特殊的对象类型，因此typeof [1, 2, 3, 4] 返回object 
+null 是只有一个值的特殊类型，表示一个空对象， typeof {} === 'object'
+
+function go({x = 10, y = 0} = {}) {
+                return x + y
+            } 
+            console.log(go({x:1, y: 2}))
+
+清楚浮动
+     .fff {
+                overflow: hidden;
+                width: 300px;
+                border: 1px solid lightgray;
+            }
+            .f-1 {
+                float: left;
+                background-color: red;
+                height: 200px;
+                width: 100px;
+            }
+            .f-2 {
+                background-color: yellow;
+                float: left;
+                height: 50px;
+                width: 100px;
+            }
+
+            新加一种元素，设置clear：both
+
+            用伪元素处理
+            .fff::after {
+                content: '';
+                height: 0;
+                width: 0;
+                display: block;
+                /* overflow: hidden; */
+                clear: both;
+            }
+
+关于valueOf、toString
+var obj = {
+    i: 10,
+    valueOf: function() {
+        
+    }
+}
+console.log()
+
+正则表达式
+.*? // 匹配任意字符1次
+out = re.findall(r'\d+(?=abc)',"1abc") ## 只抽取数字，并且该数字后面跟的字符是"abc"
+print(out)
+out1 = re.findall(r'\d+(?!abc)',"1abf") ## 只抽取数字，并且该数字后面跟的字符是"abc"
+print(out1)
+out3 = re.findall("A(?:\d{1,2}月)?D", "啊啊A22月DtttADgggg") ## 目的是抽取以A开头和D结尾的字符串
+print(out3)
+
+业务树，设备组下面标签功能，可单选多选
+
+能源系统功能迭代
+cim建模能原系统功能迭代
+实现能源系统子系统增删改，回显系统下的设备，及设备移动相关操作，显示系统下的图模及增改分享操作
+
+电力单元电价功能
+电费计算功能，包含三种单价图表，季节分时阶梯，季节分时，季节阶梯图表原生封装，电费单一制、两部制功能联调并上线
+
+目录电价功能，全国区域接口，三种图表复用，电价编辑季节、分时功能；新增、编辑电价功能
+
+
+cim建模功能迭代： 包含单点聚合功能，设备新增运维企业功能，业务树新增运维企业功能、测点查看详情、测点固有属性编辑、及相关bug
+
+业务树新增仪表树功能迭代
+
+仿真工具迭代，历史数据参数、websocket问题、新增续期、拉取设备组功能，并与大数据交接
+
+所有的对象与数组都不相等
+
+{} == {} // false
+{a: 1} == {a: 1} //false
+[] == [] // false
+[1] == [1] // false
+
+Function instanceof Function // true
+Function instanceof Object // true
+Object instanceof Function // true
+Object instanceof Object // true
+
+var myNonObj  = Object.create(null);
+myNonObj instanceof Object // false
+
+'hello'.substr(1, 2) // 'el'
+'hello'.substring(1, 2) // 'e'
+'hello'.slice(1, 2) // 'e'
+
+函数创建阶段 
+1、生成变量对象
+    1、创建arguments对象
+    2、函数声明变量提升
+    3、var定义的变量提升
+2、创建作用域
+
+3、确定this指向
+
+类数组的判断方式
+，存在且是对象，对象上有length属性，对象上的splice为函数类型
+
+箭头函数与普通函数的区别
+1、函数体内的 this 对象，就是定义时所在的对象，而不是使用时所在的对象。
+2、不可以使用 arguments 对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
+3、不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数。
+4、不可以使用 new 命令，因为：
+    没有自己的 this，无法调用 call，apply。
+    没有 prototype 属性 ，而 new 命令在执行时需要将构造函数的 prototype 赋值给新的对象的 
+ES6代码块转化为ES5代码块
+将ES6的代码转换为AST语法树，然后再将ES6 AST转为ES5 AST，再将AST转为代码
+
+对象的键名的转换
+1、对象的键名只能是字符串和 Symbol 类型。
+2、其他类型的键名会被转换成字符串类型。
+3、对象转字符串默认会调用 toString 方法。
+var obj = {} ,b = {key: 123}, c = {key: 456}
+obj[b] ='b'
+obj[c] = 'c'
+console.log(obj[b]) // c
+obj // {[object Object]: 'c'}

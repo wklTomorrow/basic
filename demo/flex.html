@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .item {
+                width: 500px;
+                display: flex;
+            }
+            .item1 {
+                flex: 1;
+                /* height: 200px; */
+                background-color: #0086FF;
+                opacity: 20%;
+            }
+            .item2 {
+                background-image: linear-gradient(180deg, #cce7ff, #fdffff);
+                opacity: 10%;
+                height: 100px;
+                width: 200px;
+            }
+            .au {
+                width: auto;
+                border: 1px solid red;
+                padding: 10px;
+                margin: 10px;
+            }
+            .no {
+                width: 100%;
+                border: 1px solid blue;
+                padding: 10px;
+                margin: 10px;
+            }
+            .fff {
+                width: 300px;
+                border: 1px solid lightgray;
+            }
+            .f-1 {
+                float: left;
+                background-color: red;
+                height: 200px;
+                width: 100px;
+            }
+            .f-2 {
+                background-color: yellow;
+                float: left;
+                height: 50px;
+                width: 100px;
+            }
+            /* .clear {
+                clear: both;
+            } */
+            .fff::after {
+                content: '';
+                height: 0;
+                width: 0;
+                display: block;
+                /* overflow: hidden; */
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="item">
+            <div class="item2">
+                <div class="au"></div>
+            </div>
+            <div class="item1">
+                <div class="no"></div>
+            </div>
+        </div>
+        <!-- 
+            float处理
+         -->
+        <!-- <div class="fff">
+            <div class="f-1"></div>
+            <div class="f-2"></div>
+            <div class="clear"></div>
+        </div> -->
+        <script>
+            // 测试模板字符串
+           
+            let obj = {
+                a: 100,
+                b: 200
+            }
+            let str = 'ssss{a}a{b}b{a}'
+            for (let i in obj) {
+                let re = new RegExp('{' + i + '}', 'g')
+                str = str.replace(re, obj[i])
+            }
+            debugger
+            // let zzz = str.match(/\{\{(\w+)\}\}/g)
+            // let name = str.replace(/\{\{(\w+)\}\}/g, RegExp)
+            // debugger
+            // 希尔排序
+            // function fn(arr) {
+            //     let len = Math.floor(arr.length / 2)
+            //     if (len == 1) {
+            //         return arr
+            //     }
+            //     for (let i = len; i < arr.length; i++) {
+            //         let j = i - len
+            //         if (arr[j] > arr[i]) {
+            //             ;[arr[i], arr[j]] = [arr[j], arr[i]]
+            //         }
+            //     }
+            //     // debugger
+            //     fn(arr.splice(0, len))
+            //     fn(arr.splice(len))
+            //     console.log(arr)
+            //     // return [fn(arr.splice(0, len)), fn(arr.splice(len))]
+            // }
+            // 选择排序
+            // function fn(arr) {
+            //     for (let i = 0; i < arr.length; i++) {
+            //         let min = arr[i]
+            //         let count = i
+            //         for (let j = i + 1; j < arr.length; j++) {
+            //             if (arr[j] < min) {
+            //                 count = j
+            //             }
+            //             ;[arr[i], arr[count]] = [arr[count], arr[i]]
+            //         }
+            //     }
+            //     return arr
+            // }
+            // 冒泡排序
+            // function fn(arr) {
+            //     if (arr.length === 0) {
+            //         return arr
+            //     }
+            //     for (let i = 0; i < arr.length; i++) {
+            //         for (let j = i; j < arr.length; j++) {
+            //             if (arr[i] > arr[j]) {
+            //                 ;[arr[i], arr[j]] = [arr[j], arr[i]]
+            //             }
+            //         }
+            //     }
+            //     return arr
+            // }
+            console.log(fn([1,5,2,6,3,1,2,4,5,7]))
+            // 查询数组中出现次数最多的
+            // function test(arr) {
+            //     let str = {}
+            //     let maxStr = ''
+            //     let max = 0
+            //     for(let i = 0; i < arr.length; i++) {
+            //         if (str[arr[i]] || str[arr[i]] === 0) {
+            //             str[arr[i]]++
+            //             if (str[arr[i]] > max) {
+            //                 maxStr = arr[i]
+            //                 max = str[arr[i]]
+            //             }
+            //         } else {
+            //             str[arr[i]] = 0
+            //         }
+            //     }
+            //     return {maxStr, max}
+
+            // }
+            // let a = test(['a', 'b', 'c', 'a'])
+            // 费波纳次序
+            // function fn(a, b, count) {
+            //     if (b > count) {
+            //         return a
+            //     }
+            //     return fn(b, a + b, count)
+            // }
+            // let z = fn(1, 1, 100)
+            // debugger
+        </script>
+    </body>
+</html>

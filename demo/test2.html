@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            #graph {
+                height: 400px;
+                width: 600px;
+            }
+            canvas{border:0px;outline:none;}
+            #addContent {
+                height: 100px;
+                width: 100px;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: 1000;
+                display: none;
+            }
+            .po {
+                position: relative;
+            }
+            /* .trig {
+                border-bottom: 10px solid lightgray;
+                border-left: 10px solid transparent;
+                width: 0px;
+                height: 0px;
+                border-right: 10px solid transparent;
+            } */
+            .content {
+                height: 100%;
+                border: 1px solid lightgray;
+                width: 100%;
+                position: relative;
+                background-color: #ffffff;
+            }
+            .content::before {
+                position: absolute;
+                top: -10px;
+                left: 30px;
+                content: '';
+                border-bottom: 10px solid lightgray;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+            }
+        </style>
+        <script src="go.js" type="text/javascript">
+        </script>
+        <script src="shape.js" type="text/javascript">
+        </script>
+    
+    </head>
+    <body>
+        <div class="po">
+            <div id="graph">
+            </div>
+            <div id="addContent">
+                <div class="content">
+                    hello world
+                </div>
+            </div>
+        </div>
+        <script>
+            var diagram = new go.Diagram("graph");
+            var $ = go.GraphObject.make;
+            let dom = document.getElementById('addContent')
+            let myToolTip = $(go.HTMLInfo, {
+                show: showToolTip,
+                hide: hideToolTip
+            })
+            diagram.nodeTemplate =
+                $(go.Node, "Auto",
+                // {
+                // toolTip: myToolTip
+                // },
+                new go.Binding("location", "loc", go.Point.parse),
+                $(go.Shape, "Ellipse", { fill: "white" }),
+                $(go.TextBlock,
+                    new go.Binding("text", "key"),
+                    {
+                        contextMenu:
+                            $("ContextMenu",  // that has one button
+                                $("ContextMenuButton",
+                                    $(go.TextBlock, "Change Color"),
+                                        { click: changeColor })
+                                // more ContextMenuButtons would go here
+                            ),
+                        click: function(e, obj) {
+                            onGetThis(e, obj)
+                        }
+                    }   
+                    )
+                );
+
+            function hideToolTip() {}
+            function showToolTip() {
+                // debugger
+            }
+            function changeColor(e, obj) {
+                // obj.part.data
+                // debugger
+
+            }
+            function onGetThis(e, obj) {
+                debugger
+                // console.log(e, obj)
+            }
+            diagram.linkTemplate =
+                $(go.Link,
+                { routing: go.Link.Orthogonal, corner: 5 },
+                $(go.Shape));
+
+            var nodeDataArray = [
+                { key: "Alpha", loc: "10 10" },
+                { key: "Beta", loc: "100 15", parent: "Alpha" },
+                { key: "Gamma", loc: "200 0", parent: "Beta" },
+                { key: "Delta", loc: "200 30", parent: "Beta" },
+                { key: "Epsilon", loc: "100 90", parent: "Alpha" },
+                { key: "Zeta", loc: "200 60", parent: "Epsilon" },
+                { key: "Eta", loc: "200 90", parent: "Epsilon" },
+                { key: "Theta", loc: "200 120", parent: "Epsilon" }
+            ];
+            // diagram.addDiagramListener('ObjectSingleClicked', function(e, obj) {
+            //     // diagram.transformDocToDoc(e.subject.part.data.loc)
+            //     console.log(e)
+            //     let curData = e.subject.part.data.loc
+            //     debugger
+            //     let location = e.subject.part.ma
+            //     // if (!curData.isCanAdd) {
+                    
+            //     //     dom.style.display = 'block'
+            //     //     dom.style.transform = `translate(${location.x + 30}px, ${location.y + 80}px)`
+            //     // }
+            //     console.log(curData)
+            // })
+            diagram.model = new go.TreeModel(nodeDataArray);
+        </script>
+    </body>
+</html>
