@@ -33,23 +33,41 @@ createNode.prototype.add = function(val) {
 let zz = new createNode()
 zz.add(1).add(2).add(3).add(4).add(5)
 // console.log(zz.next)
-
-function rotate(val, k) {
+function rotate(head, val) {
     let len = 1
-    let b = val
+    let b = head
     while(b && b.next) {
         b = b.next
         len++
     }
-    let move = len - k % len
-    let a = val
-    while(--move > 0) {
+    let move = len - val % len - 1
+    let a = head
+    while (move > 0) {
         a = a.next
+        move--
     }
-    b.next = val
-    let newHead = a.next
+    b.next = head
+    let ss = a.next
     a.next = null
-    return newHead
+    return ss
 }
-
 console.log(rotate(zz.next, 2))
+// function rotate(val, k) {
+//     let len = 1
+//     let b = val
+//     while(b && b.next) {
+//         b = b.next
+//         len++
+//     }
+//     let move = len - k % len
+//     let a = val
+//     while(--move > 0) {
+//         a = a.next
+//     }
+//     b.next = val
+//     let newHead = a.next
+//     a.next = null
+//     return newHead
+// }
+
+// console.log(rotate(zz.next, 2))

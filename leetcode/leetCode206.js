@@ -43,7 +43,19 @@ createNode.prototype.to = function() {
 var ss = new createNode()
 ss.add(1).add(2).add(3).add(4).add(5)
 console.log(ss.to())
+function rotate(head) {
+    let a1 = head
+    while(a1 && a1.next) {
+        let end = a1.next
+        a1.next = a1.next.next
+        end.next = head
+        head = end
+    }
+    return head
+}
+console.log(rotate(ss.next))
 // 迭代法
+// 1,2,3,4,5
 // function rotate(head) {
 //     let a1 = head
 //     while(a1 && a1.next) {

@@ -583,6 +583,31 @@ js实现继承的方式
             var instance = new SubType("Bob", 18);
             instance.sayName();
             instance.sayAge();
+
+            /* 
+                组合寄生式继承
+            */
+            function inhert(type, superType) {
+                let obj = Object.create(superType.prototype)
+                obj.constructor = type
+                type.prototype = obj
+            }
+            function superType(name) {
+                this.name = name
+            }
+            superType.prototype.getName = function(){
+                return this.name
+            }
+
+            function type(name, age) {
+                superType.call(this, name)
+                this.age = age
+            }
+            type.prototype.getAge = function() {
+                return this.name + this.age
+            }
+            inhert(type, superType)
+            let name = new type('wang', '10')
     
 js实现深拷贝、浅拷贝（深度优先， 广度优先）。
     浅拷贝：
@@ -619,4 +644,54 @@ gulp与Grunt
     能自动化的完成javascript/coffee/sass/less/html/image/css 等文件的的测试、检查、合并、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤。
 
 
+webpack相关知识
 
+    1、梳理webpack打包流程
+
+    2、AST基础知识
+
+    3、分析模块之间依赖图谱
+        
+    4、动手实现简易webpack
+
+浏览器请求头：https://blog.csdn.net/m0_37730732/article/details/82263609
+
+数组的空与undefined
+    let arr1 = [undefined, undefined, undefined]
+    let arr2 = [,,,]
+    数组成员可以省略。
+    只要逗号前面没有任何表达式，数组的length属性就会加 1，并且相应增加其后成员的位置索引。
+    被省略的成员不会被定义。如果被省略的成员是数组最后一个成员，则不会导致数组length属性增加
+
+事件循环
+    async function getName() {
+        console.log('getName')
+        await 1
+        console.log('getNameThen')
+    }
+    function getAge() {
+        console.log('age')
+    }
+    console.log('start')
+    setTimeout(() => {
+        console.log('timeOut')
+    })
+    getName()
+    getAge()
+    new Promise((resolve, reject) => {
+        console.log('promise')
+        resolve()
+    }).then(() => {
+        console.log('then')
+    })
+    console.log('end')
+    /* 
+        start
+        getName
+        getAge
+        promise
+        end
+        getNameThen
+        then
+        timeOut
+    */

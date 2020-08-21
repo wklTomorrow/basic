@@ -265,4 +265,28 @@ const qSort = (arr) => {
 */
 
 function radixSort(arr) {
+    let maxArr = Array.from({length: 10}, x => [])
+    let max = arr[0]
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i]
+        }
+    }
+    let num = 10
+    for (;num <= max * 10; num *= 10) {
+        for (let i = 0; i < arr.length; i++) {
+            let curNum
+            if (arr[i] >= num) {
+                curNum = Math.floor(arr[i] % num) / (num / 10)
+            } else {
+                curNum = Math.floor(arr[i] / (num / 10))
+            }
+            maxArr[curNum].push(arr[i])
+        }
+        arr = [].concat(...maxArr)
+        maxArr = Array.from({length: 10}, x => [])
+    }
+    return arr
 }
+// console.log(radixSort(arr))
+// console.log(radixSort([10, 1, 2, 22, 50, 100, 120, 1000, 200]))
