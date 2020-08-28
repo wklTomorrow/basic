@@ -108,7 +108,6 @@
             debugger
         })
         var x = document.getElementsByTagName('span')
-
         function fn () {
             var arr = []
             for (var i = 0; i < 5; i++) {
@@ -136,6 +135,10 @@
                     fn()
                 }, delay)
             }
+        }
+        function g(val, num) {
+            console.log(val, num)
+            return val + num
         }
 
         document.getElementById('btn').onclick = go(function y() {

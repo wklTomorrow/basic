@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div></div>
+        <script>
+            /* 
+                实现猫吃鱼，睡觉
+            */
+            class Cat {
+                constructor(name) {
+                    this.name = name
+                    this.fn = []
+                }
+                sleep(value) {
+                    let _this = this
+                    this.fn.push(function() {
+                        console.log(_this.name + 'sleep' + value)
+                        setTimeout(() => {
+                            _this.next()
+                        }, value)
+                    })
+                    return this
+                }
+                eat(food) {
+                    let _this = this
+                    this.fn.push(function() {
+                        console.log(_this.name + 'eat' + food)
+                        _this.next()
+                    })
+                    return this
+                }
+                sleepFirst(value) {
+                    let _this = this
+                    this.fn.unshift(function() {
+                        console.log(_this.name + 'sleepFirst' + value)
+                        setTimeout(() => {
+                            _this.next()
+                        }, value)
+                    })
+                    return this
+                }
+                next() {
+                    let fns = this.fn.shift()
+                    fns && fns()
+                }
+            }
+           let cat = new Cat('Tom')
+           cat.eat('food').eat('fish').sleep(5000).eat('egg').sleepFirst(10000).next()
+           console.log(cat)
+        </script>
+    </body>
+</html>

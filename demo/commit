@@ -20,6 +20,20 @@ function Student(name, age, wages){
 
 重绘与回流
 
+    重绘：主要是浏览器颜色的变化引起的、显隐，这里的显隐是隐藏的时候但是占的空间是存在的
+    回流：
+        网页刚开始进行渲染
+        删除或添加DOM元素：display：none与block之间
+        dom元素位置、尺寸的变化
+    解决：
+        使元素脱离文档流（document.fragment）
+        在同个CSS内进行多个修改
+        将元素带回文档中
+
+        隐藏元素，修改完成之后重新显示元素
+        使用fragment在当前的dom树外构建一个子树，最后重新copy至dom中
+        将元素copy到一个脱离文档流的元素中，修改节点，再进行替换
+
 定义构造函数
 定义生成实例接口
 定义初始化函数
@@ -190,6 +204,19 @@ Javascript中所有对象基本都是先调用valueOf方法，如果不是数值
 触发BFC(块级格式化上线文)
 只要元素满足下面任一条件即可触发 BFC 特性：
 
+    1. float: left / right
+
+    2. position: absolute / fixed
+
+    3. overflow: auto / scroll / hidden
+
+    4. <html> 根元素
+
+    5. display: inline-block / table-caption / table-cell  
+BFC特性
+    垂直方向有margin决定，并会发生重叠
+    计算BFC高度时，浮动元素也参与计算
+    原本浮动元素应该是脱离文档流的，但BFC中会计算其高度。
 
 多行CSS文本显示...
 display: -webkit-box;
@@ -200,6 +227,7 @@ overflow: hidden;
 
 var a = 0
 var b = async () => {
+    console.log(11)
     a = a + await 10 // 10 相当于promise.resolve(10).then
     console.log(2, a)
 }
@@ -695,3 +723,68 @@ webpack相关知识
         then
         timeOut
     */
+valueOf、toString调用时机
+    正常情况下，优先调用toString()
+
+    有运算操作符的情况下valueOf()的优先级高于toString()
+
+    当调用valueOf()方法无法运算后还是会再调用toString()方法
+    var n = { 
+
+        toString: function () { 
+
+            return 1 
+
+        }, 
+
+        valueOf: function () {  
+
+            return 2 
+
+        }
+
+    }
+
+    var obj = {1: 1, 2: 2};
+
+    console.log(+n);//1
+
+    console.log(obj[n]);//2
+    Date是个特殊，会优先调用valueOf
+    var date=new Date();
+
+        date.valueOf = function(){  
+
+        return '1000'
+
+    }
+
+    console.log(+date);
+
+正则表达式：
+    let zz = 'heleo'
+    let s = zz.replace(/(\w)(e)/g, '$1$2') //heleo 
+    let t = zz.replace(/(\w)(?:e)/g, '$1$2') // h$2l$2o
+    非获取匹配
+        let str = '法国菜中国人美国人'
+        console.log(str.replace(/国(?=菜)/g, 'guo'))
+        console.log(str.replace(/国(?!菜)/g, 'guo'))
+        console.log(str.replace(/(?<=中国)人/g, 'ren'))
+        console.log(str.replace(/(?<!中国)人/g, 'ren'))
+
+http状态码：
+    https://www.cnblogs.com/binguo666/p/10940198.html
+
+let pets = new Set(["Cat", "Dog", "Hamster"]);
+pets["species"] = "mammals";
+
+for (let pet in pets) {
+    console.log(pet); // "species"
+}
+
+for (let pet of pets) {
+    console.log(pet); // "Cat", "Dog", "Hamster"
+}
+
+vue 面经：
+    https://www.jianshu.com/p/152779ea1674

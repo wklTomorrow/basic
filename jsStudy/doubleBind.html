@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div></div>
+        <input id="text">
+        <p id="value"></p>
+        <script>
+            let obj = {
+                text: 1
+            }
+            let dom2 = document.getElementById('value')
+            Object.defineProperty(obj, 'text', {
+                get: function() {
+                    return obj.text
+                },
+                set: function(value) {
+                    dom2.innerText = document.getElementById('text').value
+                }
+            })
+            document.addEventListener('keyup', function(e) {
+                obj.text = 10
+            })
+        </script>
+    </body>
+</html>

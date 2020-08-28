@@ -7,6 +7,39 @@
 
     </body>
     <script>
+        /**
+         * 
+         */
+        function getTime(time) {
+            let type = 'YYYY-MM-DD hh:mm:ss'
+            let times = new Date(time)
+            let obj = {
+                'YYYY': times.getFullYear(),
+                'MM': times.getMonth() + 1,
+                'DD': times.getDate(),
+                'hh': times.getHours(),
+                'mm': times.getMinutes(),
+                'ss': times.getSeconds() 
+            }
+            let str = type.replace(/(Y|M|D|h|m|s)+/g, function(...res) {
+                return obj[res[0]]
+            })
+            return str
+        }
+        console.log(getTime(1598236783516))
+        let zz = 'heleo'
+        let s = zz.replace(/(\w)(e)/g, '$1$2') //heleo 
+        let t = zz.replace(/(\w)(?:e)/g, '$1$2') // h$2l$2o
+        console.log(s)
+        console.log(t)
+        let str = '法国菜中国人美国人'
+        console.log(str.replace(/国(?=菜)/g, 'guo'))
+        console.log(str.replace(/国(?!菜)/g, 'guo'))
+        console.log(str.replace(/(?<=中国)人/g, 'ren'))
+        console.log(str.replace(/(?<!中国)人/g, 'ren'))
+        // let num = '1234567'
+        // let zz = num.replace(/(\d)(?=(\d{3})+$)/g, '$1,')
+        // console.log(zz)
         // 柯里化函数
         // add(1)(2)()
         // 关于valueOf、toString
@@ -39,28 +72,28 @@
         //     }
         //     return _adder
         // }
-        function createCurry(fn, arg) {
-            let len = fn.length
-            let a = arg || []
-            return function () {
-                let zz = [].slice.call(arguments)
-                a.push(zz)
-                if (zz.length < len) {
-                    return createCurry.call(this, fn, a)
-                }
-                return fn.apply(this, a)
-            }
-        }
-        function _filter(fn, arr) {
-            return arr.filter(fn)
-        }
-        let _fn = createCurry(_filter)
-        let zz = _fn(
-            function(i) {
-                return i > 10
-            }
-        )
-        debugger
+        // function createCurry(fn, arg) {
+        //     let len = fn.length
+        //     let a = arg || []
+        //     return function () {
+        //         let zz = [].slice.call(arguments)
+        //         a.push(zz)
+        //         if (zz.length < len) {
+        //             return createCurry.call(this, fn, a)
+        //         }
+        //         return fn.apply(this, a)
+        //     }
+        // }
+        // function _filter(fn, arr) {
+        //     return arr.filter(fn)
+        // }
+        // let _fn = createCurry(_filter)
+        // let zz = _fn(
+        //     function(i) {
+        //         return i > 10
+        //     }
+        // )
+        // debugger
         // function Curry(fn, arg) {
         //     let len = fn.length
         //     let pa = arg || []

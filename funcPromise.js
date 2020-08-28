@@ -25,6 +25,13 @@ function Promise(executor) {
         reject(e);
     }
 }
+/**
+ * 
+ * @param {*} promise2 
+ * @param {*} x 
+ * @param {*} resolve 
+ * @param {*} reject 
+ */
 function resolvePromise(promise2,x,resolve,reject){
     if(promise2 === x){
         return reject(new TypeError('Chaining cycle'));
