@@ -45,6 +45,7 @@ ss.add(1).add(2).add(3).add(4).add(5)
 console.log(ss.to())
 function rotate(head) {
     let a1 = head
+    let b = head
     while(a1 && a1.next) {
         let end = a1.next
         a1.next = a1.next.next
