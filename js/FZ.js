@@ -20,6 +20,7 @@ async function Ajax(options = {
     url: 'http://www.baidu.com',
     methods: 'POST',
     data: {},
+    
     success: function(e) {
         console.log(e)
     },
