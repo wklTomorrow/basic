@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="real-container">
+            <p>real DOM</p>
+            <div>cannoyt update</div>
+            <ul>
+                <li class="item">item 1</li>
+                <li class="item">item 2</li>
+                <li class="item">item 3</li>
+            </ul>
+        </div>
+        <script>
+            const tree = Element('div', {id: 'vitual-container'}, [
+                Element('p', {}, ['vitual DOM']),
+                Element('div', {}, ['before update']),
+                Element('ul', {}, [
+                    Element('li', {class: 'item'}, ['item 1']),
+                    Element('li', {class: 'item'}, ['item 2']),
+                    Element('li', {class: 'item'}, ['item 3'])
+                ])
+            ])
+            function Element(tagName, prop, children) {
+                if (!(this instanceof Element)) {
+                    return new Element(tagName, prop, children);
+                }
+                this.tagName = tagName;
+                this.prop = prop || {}
+                this.children = children || [];
+                let count = 0;
+                this.children.forEach(ele => {
+                    if (ele instanceof Element) {
+                        count += ele.count;
+                    }
+                    count++
+                })
+                this.count = count
+            }
+            console.log(tree)
+            function settAttr(dom, key, value) {
+                dom.setAttribute(key, value);
+            }
+            Element.prototype.render = function() {
+                const el = document.createElement(this.tagName);
+                const prop = this.prop;
+                for (let i in prop) {
+                    settAttr(el, i, prop[i]);
+                }
+                this.children.forEach(ele => {
+                    const eleEl = ele instanceof Element ? ele.render() : document.createTextNode(ele);
+                    el.appendChild(eleEl);
+                })
+                return el
+            }
+            document.body.appendChild(tree.render());
+            console.log(tree.render());
+        </script>
+    </body>
+</html>
