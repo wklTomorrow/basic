@@ -25,6 +25,10 @@
                 right: 0;
                 background-color: black;
             } */
+            .test {
+                height: 300px;
+                width: 300px;
+            }
         </style>
     </head>
     <body>
@@ -46,6 +50,11 @@
                     ctx.fillStyle = `rgb(${r}, ${g}, ${b})`
                     ctx.fillText(`*`, left, top);
                 }
+                setInterval(function () {
+                    return function() {
+                        init(10)
+                    }
+                }(), 2000)
             }
             function initColor(canvas) {
                 return {
@@ -56,9 +65,9 @@
                     top: parseInt(Math.random() * window.innerHeight)
                 }
             }
-            console.log(new Date().getTime())
-            init(1000)
-            console.log(new Date().getTime())
+            // console.log(new Date().getTime())
+            init(10)
+            // console.log(new Date().getTime())
         </script>
     </body>
 </html>
