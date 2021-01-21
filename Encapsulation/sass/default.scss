@@ -1,0 +1,105 @@
+// Color
+$--color-primary: #00B3A4;
+$--color-plain: #FEF0F0;
+$--color-danger: #FF3336;
+
+$--color-red: #FF3336;
+$--color-yellow: #FFAE0D;
+$--color-green: #4ACC0A;
+
+$--color-text-primary: #333;
+$--color-text-secondary: #666;
+$--color-text-placeholder: #999;
+$--color-text-disabled: #CCC;
+
+$--color-success: $--color-green;
+$--color-error: $--color-red;
+
+// Font
+$--font-size: 14px;
+$--font-size-small: 12px;
+$--font-size-large: 16px;
+$--font-weight: 400;
+$--font-weight-bold: 500;
+
+// Icon
+$--icon-color: $--color-text-secondary;
+$--icon-color-light: #CCC;
+$--icon-font-size: 16px;
+
+// Border
+$--border-color-primary: #00B3A4;
+$--border-color-base: #E0E0E0;
+$--border-color-light: #EEE;
+$--border-color-dark: #CCC;
+
+// Background
+$--background-color-light: #EEE;
+
+// Shadow
+$--shadow-color-primary: #B6F2F1;
+
+// Disable
+$--disabled-fill-base: #F5F5F5;
+$--disabled-color-base: $--color-text-disabled;
+$--disabled-border-base: $--border-color-base;
+
+// 整体布局变量
+$--nav-height: 54px;
+$--sidebar-width: 200px;
+$--sidebar-collapse-width: 48px;
+$--main-margin: 16px;
+$--main-padding: 20px;
+
+// Menu
+$--menu-item-height: 40px;
+
+// Tooltip
+$--tooltip-fill: #262931;
+
+// Button
+$--button-min-width: 80px;
+$--button-small-min-width: 60px;
+$--button-padding-vertical: 7px !default;
+$--button-padding-horizontal: 12px !default;
+$--button-default-font-color: $--color-text-primary;
+$--button-font-weight: 400;
+$--button-default-border-color: $--border-color-dark;
+
+// Table
+$--table-header-background-color: #F5F5F5;
+$--background-color-base: #F5F5F5; // 多级表头背景颜色
+$--table-header-font-color: $--color-text-primary;
+$--table-font-color: $--color-text-primary;
+$--table-border-color: $--border-color-base;
+$--table-row-hover-background-color: #FAFAFA;
+
+// Dialog
+$--dialog-padding-primary: 24px !default;
+$--dialog-title-font-size: 16px;
+
+// Pagination
+$--pagination-font-size: 12px;
+$--pagination-font-color: $--color-text-secondary;
+$--pagination-button-color: $--color-text-secondary;
+$--pagination-border-radius: 4px;
+$--pagination-button-width: 24px;
+$--pagination-button-height: 24px;
+
+// Tab
+$--tab-border-line: 1px solid $--border-color-light !default;
+
+// Input
+$--input-mini-height: 24px;
+$--input-padding-horizontal: 12px;
+$--input-small-font-size: 14px;
+$--input-font-color: $--color-text-primary;
+$--input-disabled-placeholder-color: $--color-text-disabled;
+
+// Select
+$--select-option-color: $--color-text-primary;
+
+// messageBox
+$--messagebox-content-font-size: $--font-size-large;
+$--messagebox-content-color: $--color-text-primary;
+$--messagebox-warning-color: $--color-yellow;

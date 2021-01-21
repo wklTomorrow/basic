@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .item {
+                padding: 10px;
+                height: 200px;
+                width: 150px;
+                position: relative;
+                overflow: hidden;
+                border: 1px solid red;
+            }
+            .img {
+                height: 100%;
+                overflow: hidden;
+                width: 100%;
+                position: relative;
+            }
+            .ge {
+                position: absolute;
+                height: 200px;
+                width: 150px;
+                background-color: lightblue;
+                opacity: 0;
+                top: 0;
+                /* top: -200px; */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .button {
+                position: absolute;
+                opacity: 0;
+                top: calc(50% - 54px);
+                left: calc(50% - 50px);
+                height: 32px;
+                line-height: 32px;
+                border: 1px solid yellow !important;
+                color: yellow !important;
+                width: 100px;
+                text-align: center;
+                cursor: pointer;
+            }
+            
+            .button:hover {
+                background-color: lightgreen;
+            }
+
+            .img:hover .button {
+                opacity: 1;
+                transform: translateY(32px);
+                transition: all 2s;
+            }
+            img {
+                height: 200px;
+                width: 150px;
+            }
+
+            .img:hover img {
+                animation: animates linear 2s;
+                transform: scale(1.2);
+            }
+            .img:hover .ge {
+                /* transform: translateY(200px);
+                transition: all 2s; */
+                opacity: 0.6;
+            }
+            @keyframes animates {
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.3);
+                }
+                100% {
+                    transform: scale(1.1);
+                }
+            }
+        </style>
+        <style>
+            .btn {
+                height: 200px;
+                width: 150px;
+                margin-top: 20px;
+                padding: 10px;
+                border: 1px solid red;
+                position: relative;
+            }
+            .btn-effect {
+                width: 100px;
+                height: 32px;
+                position: absolute;
+                top: calc(50% - 16px);
+                line-height: 32px;
+                cursor: pointer;
+                border: 1px solid #178dff;
+                color: #178dff;
+                border-radius: 2px;
+                text-align: center;
+            }
+            .btn-effect:hover {
+                box-shadow: 10px 10px 5px #888888;
+                animation: goBtn infinite linear 0.5s;
+                background-image: radial-gradient(red, yellow, green);
+                top: calc(50% - 10px);
+            }
+            @keyframes goBtn {
+                0% {
+                    top: calc(50% - 16px);
+                }
+                25% {
+                    top: calc(50% - 20px);
+                }
+                75% {
+                    top: calc(50% - 12px);
+                }
+                100% {
+                    top: calc(50% - 16px);
+                }
+            }
+        </style>
+        <style>
+            .btns {
+                height: 200px;
+                width: 150px;
+                margin-top: 20px;
+                padding: 10px;
+                border: 1px solid red;
+                position: relative;
+            }
+            .btns-effect {
+                width: 100px;
+                height: 32px;
+                position: relative;
+                top: calc(50% - 16px);
+                left: calc(50% - 50px);
+                line-height: 32px;
+                cursor: pointer;
+                border: 1px solid #178dff;
+                color: #178dff;
+                border-radius: 2px;
+                text-align: center;
+            }
+            .btns-effect:hover .line {
+                opacity: 1;
+                transition: all 0.5s;
+            }
+            .btns-effect:hover .a {
+                width: 120px;
+                left: -10px;
+                /* transition: all 2s; */
+            }
+            .btns-effect:hover .b {
+                width: 120px;
+                left: -10px;
+                /* transition: all 2s; */
+            }
+            .btns-effect:hover .c {
+                height: 52px;
+                top: -10px;
+                /* transition: all 2s; */
+            }
+            
+            .btns-effect:hover .d {
+                height: 52px;
+                top: -10px;
+                /* transition: all 2s; */
+            }
+
+            .line {
+                position: absolute;
+                opacity: 0;
+                background-color: #178dff;
+            }
+            .a, .b {
+                width: 100px;
+                height: 1px;
+                left: 0;
+            }
+            .a {
+                top: -10px;
+            }
+            .b {
+                bottom: -10px;
+            }
+            .c, .d {
+                width: 1px;
+                height: 32px;
+                top: 0;
+            }
+            .c {
+                left: -10px;
+            }
+            .d {
+                right: -10px;
+            }
+        </style>
+        <style>
+            .content {
+                position: relative;
+                top: 20%;
+                height: 32px;
+                width: 100px;
+                transform-style: preserve-3d
+            }
+            .back, .font {
+                position: absolute;
+                top: 0;
+                height: 32px;
+                width: 100%;
+                line-height: 32px;
+                color: #ffffff;
+                display: flex;
+                /* perspective: 1000; */
+                /* backface-visibility: hidden; */
+            }
+            .btn:hover .content {
+                transform: rotateY(180deg);
+                transition: all 2s;
+            }
+            .font {
+                transform: rotateY(180deg);
+                background-color: blue !important;
+            }
+            .back {
+                transform: rotateY(0);
+                z-index: 1;
+                background-color: red !important;
+            }
+            .plus, .add {
+                width: 20px;
+                line-height: 32px;
+                text-align: center;
+                cursor: pointer;
+            }
+            #value {
+                flex: 1;
+                line-height: 32px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="item">
+            <div class="img">
+                <img src="./image/girl.jpg"/>
+                <div class="ge">
+                </div>
+                <div class="button" onclick="onClickThis()">点击按钮</div>
+            </div>
+        </div>
+        <div class="btn">
+            <div class="btn-effect">按钮效果</div>
+        </div>
+        <div class="btns">
+            <div class="btns-effect">
+                <div class="line a"></div>
+                <div class="line b"></div>
+                <div class="line c"></div>
+                <div class="line d"></div>
+                <span>按钮效果</span>
+            </div>
+        </div>
+        <div class="btn">
+            <div class="content">
+                <div class="back">
+                    <div class="plus">-</div>
+                    <div id="value">1</div>
+                    <div class="add">+</div>
+                </div>
+                <div class="font">
+                    <div class="plus">-</div>
+                    <div id="value">2</div>
+                    <div class="add">+</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function onClickThis() {
+                console.log('hello world')
+            }
+        </script>
+    </body>
+</html>

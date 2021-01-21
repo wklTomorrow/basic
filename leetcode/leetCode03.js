@@ -9,7 +9,7 @@ const longStr = str => {
         let s = str.charAt(i)
         let index = arr.indexOf(s)
         if (index !== -1) {
-            arr.splice(s + 1, 1)
+            arr.splice(0, 1)
         }
         arr.push(s)
         max = Math.max(arr.length, max)

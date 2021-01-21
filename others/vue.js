@@ -5071,6 +5071,7 @@
     }
   
     function Vue (options) {
+      debugger
       if (!(this instanceof Vue)
       ) {
         warn('Vue is a constructor and should be called with the `new` keyword');
@@ -11888,6 +11889,7 @@
         );
         return this
       }
+      debugger
   
       var options = this.$options;
       // resolve template/el and convert to render function

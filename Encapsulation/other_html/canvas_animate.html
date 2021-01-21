@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            #content {
+                height: 50vh;
+                width: 50vw;
+                /* height: 400px;
+                width: 400px; */
+                position: relative;
+                overflow: hidden;
+            }
+            #my-canvas {
+                background-color: black;
+                height: 100%;
+                width: 100%;
+            }
+            /* .test {
+                z-index: 100;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background-color: black;
+            } */
+            .test {
+                height: 300px;
+                width: 300px;
+            }
+        </style>
+        <script src="./animate.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <canvas id="my-canvas"></canvas>
+        </div>
+        <!-- <div class="test">
+            <canvas id="canvas"></canvas>
+        </div> -->
+        <script>
+            console.log(window)
+            let dom = document.getElementById('content')
+            $('#my-canvas').start()
+            // $('#canvas').start()
+            // let numArr = []
+            // let dom = document.getElementById('content')
+            // let canvas = document.getElementById("my-canvas");
+            // canvas.height = dom.offsetHeight;
+            // canvas.width = dom.offsetWidth
+            // let ctx = canvas.getContext("2d");
+            // function init(num) {
+            //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+            //     if (!numArr.length) {
+            //         numArr = Array.from({length: num}, x => ({}))
+            //     }
+            //     for (let i = 0; i < numArr.length; i++) {
+            //         if (!Object.keys(numArr[i]).length) {
+            //             let { r, g, b, left, top, leftLen, topLen } = initColor(canvas);
+            //             numArr[i] = {
+            //                 r,
+            //                 g,
+            //                 b,
+            //                 left,
+            //                 top,
+            //                 leftLen,
+            //                 topLen
+            //             }
+            //         }
+            //         let leftSum = numArr[i].left + numArr[i].leftLen
+            //         let topSum = numArr[i].top + numArr[i].topLen
+            //         numArr[i] = {
+            //             ...numArr[i],
+            //             top: topSum > canvas.height ? 0 : topSum,
+            //             left: leftSum > canvas.width ? 0 : leftSum
+            //         }
+            //         // ctx.fillStyle = `red`
+            //         ctx.font='20px Arial';
+            //         ctx.fillStyle = `rgb(${numArr[i].r}, ${numArr[i].g}, ${numArr[i].b})`
+            //         ctx.fillText(`*`, numArr[i].left, numArr[i].top);
+            //     }
+            //     setTimeout(function () {
+            //         return function() {
+            //             init(numArr.length)
+            //         }
+            //     }(), 100)
+            // }
+            // function initColor(canvas) {
+            //     return {
+            //         r: parseInt(Math.random() * 255),
+            //         g: parseInt(Math.random() * 255),
+            //         b: parseInt(Math.random() * 255),
+            //         left: parseInt(Math.random() * window.innerWidth),
+            //         leftLen: parseInt(Math.random() * 20) < 1 ? 1 : parseInt(Math.random() * 20),
+            //         top: parseInt(Math.random() * window.innerHeight),
+            //         topLen: parseInt(Math.random() * 10) < 1 ? 1 : parseInt(Math.random() * 10),
+            //     }
+            // }
+            // console.log(new Date().getTime())
+            // init(2000)
+            // console.log(new Date().getTime())
+        </script>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            #content {
+                height: 100vh;
+                background-color: black;
+                width: 100vw;
+                position: relative;
+                overflow: hidden;
+            }
+            .animate-span {
+                animation: go 2s infinite;
+            }
+
+            @keyframes go {
+                0% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: .3;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content"></div>
+        <script>
+            function init(num) {
+                let dom = document.getElementById('content');
+                for (let i = 0; i < num; i++) {
+                    let {r, g, b, left, top} = initColor();
+                    let numCount = document.createElement('div');
+                    numCount.className = 'animate-span';
+                    numCount.innerHTML = '*'
+                    numCount.setAttribute('style', `color: rgb(${r}, ${g}, ${b}); position: absolute; top: ${top}px; left: ${left}px`);
+                    dom.appendChild(numCount)
+                }
+            }
+            function initColor() {
+                return {
+                    r: parseInt(Math.random() * 255),
+                    g: parseInt(Math.random() * 255),
+                    b: parseInt(Math.random() * 255),
+                    left: parseInt(Math.random() * window.innerWidth),
+                    top: parseInt(Math.random() * window.innerHeight)
+                }
+            }
+            console.log(new Date().getTime())
+            init(1000)
+            console.log(new Date().getTime())
+        </script>
+    </body>
+</html>

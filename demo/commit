@@ -788,3 +788,50 @@ for (let pet of pets) {
 
 vue 面经：
     https://www.jianshu.com/p/152779ea1674
+
+vue 知识：
+    https://segmentfault.com/a/1190000021407782?utm_source=sf-related
+
+vue 不能监听数组的响应式，一些特殊的方法可以，（push, pop, unshift, shift, splice,sort, reverse）
+面试:
+    https://blog.csdn.net/xm1037782843/article/details/80708533
+
+get与post区别:
+    get: 
+        get请求可被缓存，get请求可被保留至浏览器记录中，get请求可被添加标签，get用于拉取数据，有长度限制，get不应处理敏感数据使用
+    post：
+        post不可被缓存，不可被添加标签，不会存在浏览器记录中，post对数据长度没限制
+白屏时间：
+    https://blog.csdn.net/qq_41047322/article/details/82814396
+
+html继承属性:
+    不可继承的：display、margin、border、padding、background、height、min-height、max-height、width、
+    min-width、max-width、overflow、position、left、right、top、bottom、z-index、float、clear、table-layout、vertical-align、page-break-after、page-bread-before和unicode-bidi。
+    所有元素可继承：visibility和cursor。
+    内联元素可继承：letter-spacing、word-spacing、white-space、line-height、color、font、font-family、font-size、font-style、font-variant、font-weight、text-decoration、text-transform、direction。
+    终端块状元素可继承：text-indent和text-align。
+    列表元素可继承：list-style、list-style-type、list-style-position、list-style-image。
+    表格元素可继承：border-collapse。
+
+前端路由的由来：
+    1、Hash模式，通过本地路由的hash改变来进行页面的变换
+    2、history模式，
+
+jsonp实现原理：
+    创建一个回调函数，然后在远程服务上调用这个函数并且将JSON 数据形式作为参数传递，完成回调。
+
+webpack打包流程：
+    1、初始化函数，从配置数据和命令行中获取参数
+    2、开始编译，用上一步获取的参数初始化编译对象，并加载所有配置的插件，执行run方法开始编译
+    3、确定入口，根据配置文件找出所有的入口文件
+    4、编译文件， 从入口文件开始，调用所有配置loader再对模块进行翻译，再找出该模块依赖的模块，重复，知道所有入口文件引用的依赖文件经过处理
+    5、完成模块编译，经过第四步的loader处理之后，得到模块被翻译后的内容以及依赖关系
+    6、输出资源： 根据入口和模块依赖关系，组装成包含多个模块的chunk，再把chunk转换成单独的文件到输出列表
+    7、输出完成： 在确定好输出资源内容后，根据配置确定输出路径和文件名，把文件内容写入到文件系统
+
+fn1.call.call(fn2) 等效于 fn2.call(undefined)
+void 0 === undefined          // true
+void 1 === undefined          // true
+void {} === undefined         // true
+void 'hello' === undefined    // true
+void void 0 === undefined     // true

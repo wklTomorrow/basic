@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            #animate {
+                height: 100px;
+                width: 100px;
+                box-sizing: border-box;
+                border: 1px solid red;
+                position: relative;
+                top: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>go</div>
+        <div id="animate">动画</div>
+        <button onclick="onStartAnimate()">start</button>
+        <script>
+            function onStartAnimate() {
+                let start;
+                const dom = document.getElementById('animate')
+                function step(timestamp) {
+                    if (start === undefined) {
+                        start = timestamp
+                    }
+                    let count = timestamp - start;
+                    dom.style.transform = `translateX(${Math.min(0.1 * count, 200)}px)`
+                    if (count < 2000) {
+                        window.requestAnimationFrame(step)
+                    }
+                }
+                window.requestAnimationFrame(step)
+            }
+        </script>
+    </body>
+</html>

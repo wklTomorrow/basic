@@ -275,7 +275,7 @@ function radixSort(arr) {
     let num = 10
     for (;num <= max * 10; num *= 10) {
         for (let i = 0; i < arr.length; i++) {
-            let curNum
+            let curNum 
             if (arr[i] >= num) {
                 curNum = Math.floor(arr[i] % num) / (num / 10)
             } else {
@@ -288,5 +288,5 @@ function radixSort(arr) {
     }
     return arr
 }
+console.log(radixSort([10, 1, 2, 22, 50, 100, 120, 1000, 200]))
 // console.log(radixSort(arr))
-// console.log(radixSort([10, 1, 2, 22, 50, 100, 120, 1000, 200]))

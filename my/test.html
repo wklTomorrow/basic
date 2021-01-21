@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .go {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background-color: red;
+                bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="go">go</div>
+        <script src="./reg.js"></script>
+        <script>
+            function foo() {
+                // console.log('foo')
+                // setTimeout(foo(), 0)
+                // Promise.resolve(true).then(foo())
+            }
+            foo()
+            // Function.prototype._apply = function(objs) {
+            //     let obj = objs || window
+            //     obj.fn = this
+            //     obj.fn(...arguments[1])
+            //     delete obj.fn
+            // }
+            // function say(s,y) {
+            //     console.log(this.a + this.b, s + y)
+            // }
+            // let objs = {
+            //     a: 1,
+            //     b: 2
+            // }
+            // say._apply(objs, [3, 4])
+        
+            // function curry(fn, ...res) {
+            //     let len = fn.length
+            //     let arg = [...res]
+            //     return function () {
+            //         arg.push(...arguments)
+            //         if (arg.length < len) {
+            //             return curry.call(this, fn, arg)
+            //         }
+            //         return fn.apply(undefined, arg)
+            //     }
+            // }
+            // let fn = function(a, b, c) {
+            //     return a + b + c
+            // }
+            // let fn1 = new curry(fn, 1)
+            // console.log(fn1(2,3))
+            // Function.prototype._bind = function(oThis) {
+            //     let fn = this
+            //     let arg = [...arguments].slice(1)
+            //     return function () {
+            //         fn.apply(oThis, arg)
+            //     }
+            // }
+            // function fn() {
+            //     console.log(this.name, this.age)
+            // }
+            // let obj = {name: 1, age: 2}
+            // fn._bind(obj)()
+            // function defineArrKey(arr, key, value) {
+            //     Object.defineProperty(arr, key, {
+            //         enumerable: true,
+            //         configurable: true,
+            //         get: function() {
+            //             console.log(`get${key}`)
+            //             return value
+            //         },
+            //         set: function(newValue) {
+            //             console.log(`set${key}`)
+            //             value = newValue
+            //         }
+            //     })
+            // }
+            // function define(arr) {
+            //     for(let i in arr) {
+            //         defineArrKey(arr, i, arr[i])
+            //     }
+            // }
+//             - ```push```
+// >   - ```unshift```
+// >   - ```pop```
+// >   - ```shift```
+// >   - ```reverse```
+// >   - ```sort```
+// >   - ```splice```
+            // let arr = [1,2,3]
+            // define(arr)
+            // debugger
+        </script>
+    </body>
+</html>

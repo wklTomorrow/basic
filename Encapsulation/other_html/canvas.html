@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            #content {
+                height: 100vh;
+                width: 100vw;
+                position: relative;
+                overflow: hidden;
+            }
+            #my-canvas {
+                background-color: black;
+            }
+            /* .test {
+                z-index: 100;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background-color: black;
+            } */
+            .test {
+                height: 300px;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <canvas id="my-canvas"></canvas>
+        </div>
+        <div class="test"></div>
+        <script>
+            function init(num) {
+                let dom = document.getElementById('content')
+                let canvas = document.getElementById("my-canvas");
+                canvas.height = dom.offsetHeight;
+                canvas.width = dom.offsetWidth
+                let ctx = canvas.getContext("2d");
+                for (let i = 0; i < num; i++) {
+                    let { r, g, b, left, top } = initColor(canvas);
+                    // ctx.fillStyle = `red`
+                    ctx.font='20px Arial';
+                    ctx.fillStyle = `rgb(${r}, ${g}, ${b})`
+                    ctx.fillText(`*`, left, top);
+                }
+                setInterval(function () {
+                    return function() {
+                        init(10)
+                    }
+                }(), 2000)
+            }
+            function initColor(canvas) {
+                return {
+                    r: parseInt(Math.random() * 255),
+                    g: parseInt(Math.random() * 255),
+                    b: parseInt(Math.random() * 255),
+                    left: parseInt(Math.random() * window.innerWidth),
+                    top: parseInt(Math.random() * window.innerHeight)
+                }
+            }
+            // console.log(new Date().getTime())
+            init(10)
+            // console.log(new Date().getTime())
+        </script>
+    </body>
+</html>
