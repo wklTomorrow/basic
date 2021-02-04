@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>
+            <span>a</span>
+            <span>b</span>
+            <span>c</span>
+        </div>
+        <script>
+            function getALl() {
+                let dom = document.getElementsByTagName('html')
+                let maxLen = 0, len = 1, name = [dom[0].tagName];
+                function getChild(childList, deep) {
+                    console.log(childList)
+                    len = len < childList.length ? childList.length : len;
+                    deep ++
+                    maxLen = deep > maxLen ? deep : maxLen
+                    for (let i = 0; i < childList.length; i++) {
+                        name.push(childList[i].tagName)
+                        getChild(childList[i].children, deep)
+                    }
+                }
+                getChild(dom[0].children, 0)
+                console.log(maxLen, len, name)
+            }
+            getALl()
+        </script>
+    </body>
+</html>
