@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            :root {
+                --loading-pink: lightgray;
+            }
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            .content {
+                margin: 0 auto;
+                width: 300px;
+                box-sizing: border-box;
+                border: 1px solid lightgray;
+                height: 100vh;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+            }
+            .header {
+                height: 100px;
+                display: flex;
+                background-color: lightgray;
+                margin-bottom: 20px;
+            }
+            .head-item {
+                flex: 1;
+                margin-right: 20px;
+                background-color: lightgray;
+                animation-delay: .5;
+            }
+            .head-item:last-child {
+                margin-right: 0px !important;
+            }
+            .body {
+                height: 300px;
+                background-color: lightgray;
+                margin-bottom: 20px;
+                animation-delay: .6;
+            }
+            .footer {
+                background-color: lightgray;
+                height: 100px;
+                animation: .7;
+            }
+            .loading {
+                background-color: var(--loading-pink);
+                background: linear-gradient(
+                    100deg,
+                    rgba(255, 255, 255, 0) 40%,
+                    rgba(255, 255, 255, .5) 50%,
+                    rgba(255, 255, 255, 0) 60%
+                ) var(--loading-pink);
+                background-size: 200%, 100%;
+                background-position-x: 120%;
+                animation: .8s loading ease-in-out infinite;
+            }
+            @keyframes loading {
+                to {
+                    background-position-x: -20%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="header loading">
+                <!-- <div class="head-item"></div>
+                <div class="head-item"></div>
+                <div class="head-item"></div> -->
+            </div>
+            <div class="body loading"></div>
+            <div class="footer loading"></div>
+        </div>
+    </body>
+</html>
